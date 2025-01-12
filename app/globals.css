@@ -62,16 +62,11 @@ html {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #f9fafb;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic",
     Verdana, Meiryo, "M+ 1p", sans-serif;
   font-weight: 500;
-  color: #484848;
+  color: #686868;
 }
 
 @layer utilities {
