@@ -36,8 +36,8 @@ const posts = [
 
 const PopularPosts = () => {
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="w-full py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-8">人気の投稿</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {posts.map((post) => (
