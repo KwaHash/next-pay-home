@@ -62,6 +62,7 @@ html {
 
 body {
   color: rgb(var(--foreground-rgb));
+  background-color: #f9fafb;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic",
     Verdana, Meiryo, "M+ 1p", sans-serif;
   font-weight: 500;

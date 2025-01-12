@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { FiPlayCircle } from "react-icons/fi";
 
 const Hero = () => {
@@ -16,10 +17,10 @@ const Hero = () => {
               <br />信頼できる工務店との出会いから、細かな相談までをトータルサポート。
             </p>
             <div className="mt-10 flex items-center justify-center">
-              <button className="rounded-md bg-white px-6 py-3 text-lg font-semibold text-indigo-600 shadow-sm hover:bg-gray-100 transition-colors flex items-center gap-2">
+              <Link href="/" className="rounded-md bg-white px-6 py-3 text-lg font-semibold text-indigo-600 shadow-sm hover:bg-gray-200 transition-colors duration-300 ease-out flex items-center gap-2">
                 <FiPlayCircle className="w-6 h-6" />
                 サービス紹介動画を見る
-              </button>
+              </Link>
             </div>
           </div>
         </div>
