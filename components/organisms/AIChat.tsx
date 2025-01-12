@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import QuickQuestion from '@/components/molecules/QuickQuestion';
 import { BsSend } from "react-icons/bs";
 import { RiRobot2Line } from "react-icons/ri";
 
@@ -44,18 +44,22 @@ const AIChat = () => {
             <QuickQuestion
               question="予算はどのくらい必要ですか？"
               category="予算・費用"
+              linkUrl="/"
             />
             <QuickQuestion
               question="土地探しのコツは？"
               category="土地選び"
+              linkUrl="/"
             />
             <QuickQuestion
               question="断熱材の選び方は？"
               category="素材・設備"
+              linkUrl="/"
             />
             <QuickQuestion
               question="収納の失敗しない計画は？"
               category="間取り・収納"
+              linkUrl="/"
             />
           </div>
         </div>
@@ -63,14 +67,5 @@ const AIChat = () => {
     </section>
   );
 };
-
-const QuickQuestion = ({ question, category }: { question: string; category: string }) => (
-  <Link href="/" className="block bg-white rounded p-4 shadow hover:shadow-lg transition-shadow text-left">
-    <span className="text-sm font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded">
-      {category}
-    </span>
-    <p className="mt-2 text-gray-900">{question}</p>
-  </Link>
-);
 
 export default AIChat;
