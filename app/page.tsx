@@ -1,7 +1,10 @@
+import Loading from "@/components/molecules/Loading";
 import Hero from "@/components/organisms/Hero";
-import PopularPosts from "@/components/organisms/PopularPosts";
 import AIChat from "@/components/organisms/AIChat";
 import CTASection from "@/components/organisms/CTASection";
+import dynamic from "next/dynamic";
+
+const PopularPosts = dynamic(() => import('@/components/organisms/PopularPosts'), { ssr: false, loading: () => <Loading />, });
 
 export default function Home() {
   return (

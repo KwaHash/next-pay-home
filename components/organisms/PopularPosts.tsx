@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -41,8 +43,8 @@ const PopularPosts = () => {
         <h2 className="text-3xl font-bold text-gray-900 mb-8">人気の投稿</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {posts.map((post) => (
-            <Link href="/" key={post.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="relative pb-[56.25%]">
+            <Link href="#" key={post.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="relative aspect-video">
                 <Image
                   src={post.image}
                   alt={post.title}

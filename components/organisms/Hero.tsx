@@ -4,7 +4,7 @@ import { FiPlayCircle } from "react-icons/fi";
 
 const Hero = () => {
   return (
-    <div className="w-full">
+    <div className="w-full mt-20">
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-90" />
         <div className="relative max-w-7xl mx-auto px-4 py-24 sm:py-32">

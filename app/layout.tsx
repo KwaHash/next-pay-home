@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import NavBar from "@/components/organisms/NavBar";
 import "./globals.css";
-
 
 export const metadata: Metadata = {
   title: "PayHome",
@@ -14,7 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="jp">
-      <body>{children}</body>
+      <body>
+        <NavBar isCompanyLoggedIn={true} />
+        {children}
+      </body>
     </html>
   );
 }
