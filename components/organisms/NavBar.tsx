@@ -9,7 +9,7 @@ import { LuBuilding2 } from "react-icons/lu";
 import { RiRobot2Line } from "react-icons/ri";
 
 const NavBar = () => {
-  const isCompanyLoggedIn = true;
+  const isCompanyLoggedIn = false;
   return (
     <nav className="w-full fixed bg-white shadow-lg z-50">
       <div className="mx-auto px-8">
