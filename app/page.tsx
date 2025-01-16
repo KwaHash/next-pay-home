@@ -8,7 +8,7 @@ const PopularPosts = dynamic(() => import('@/components/organisms/PopularPosts')
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-screen items-center justify-between mt-20">
+    <main className="flex flex-col flex-grow items-center justify-between mt-20">
       <Hero />
       <PopularPosts />
       <AIChat />

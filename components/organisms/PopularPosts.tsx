@@ -6,35 +6,7 @@ import Image from 'next/image';
 import { FiHeart } from "react-icons/fi";
 import { LuMessageCircleMore, LuBookmark } from "react-icons/lu";
 
-const posts = [
-  {
-    id: 1,
-    title: "自然素材にこだわった平屋の家",
-    image: "/imgs/posts/01.jpg",
-    author: "田中さん家",
-    likes: 234,
-    comments: 45,
-    tags: ["平屋", "自然素材", "和モダン"]
-  },
-  {
-    id: 2,
-    title: "コストを抑えた高性能住宅",
-    image: "/imgs/posts/02.jpg",
-    author: "佐藤さん家",
-    likes: 189,
-    comments: 32,
-    tags: ["コスト削減", "高性能", "省エネ"]
-  },
-  {
-    id: 3,
-    title: "二世帯住宅の快適な暮らし",
-    image: "/imgs/posts/03.jpg",
-    author: "鈴木さん家",
-    likes: 156,
-    comments: 28,
-    tags: ["二世帯住宅", "間取り", "収納"]
-  }
-];
+import { posts } from '@/utils/data';
 
 const PopularPosts = () => {
   return (
