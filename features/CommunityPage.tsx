@@ -34,15 +34,17 @@ const CommunityPage: React.FC = () => {
 
   return (
     <div className="w-full flex-grow bg-gray-50">
-
+      {/* New Post Button & Search Bar */}
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-12">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex flex-col gap-6 sm:flex-row sm:justify-between sm:items-center sm:gap-0 mb-8">
             <div>
               <h1 className="text-3xl font-bold mb-4">ぺいほーむコミュニティ</h1>
               <p className="text-lg opacity-90">家づくりの経験や知恵を共有しよう</p>
             </div>
-            <NewPostButton onClick={handleNewPostClick} />
+            <div className="w-full sm:w-auto">
+              <NewPostButton onClick={handleNewPostClick} />
+            </div>
           </div>
 
           <CommunitySearchBar
@@ -55,6 +57,7 @@ const CommunityPage: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* FilterTab & Post List */}
           <div className="lg:col-span-2">
             <CommunityFilterTab
               activeFilter={activeFilter}
@@ -71,6 +74,7 @@ const CommunityPage: React.FC = () => {
             </div>
           </div>
 
+          {/* Popular Topics & Featured Exports */}
           <div className="lg:col-span-1">
             <CommunitySideBar
               popularTopics={popularTopics}
