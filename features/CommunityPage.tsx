@@ -5,9 +5,10 @@ import NewPostButton from "@/components/molecules/button/NewPostBtn";
 import CommunitySearchBar from "@/components/molecules/searchbar/CommunitySearchBar";
 import CommunityFilterTab from "@/components/molecules/CommunityFilterTab";
 import PostCard from "@/components/molecules/card/PostCard";
+import CommunitySideBar from "@/components/molecules/sidebar/CommunitySideBar";
 
 import { PostProps } from "@/utils/types";
-import { initialPosts } from "@/utils/data";
+import { initialPosts, popularTopics, experts } from "@/utils/data";
 
 const CommunityPage: React.FC = () => {
   const [showNewPostModal, setShowNewPostModal] = useState(false);
@@ -33,7 +34,7 @@ const CommunityPage: React.FC = () => {
 
   return (
     <div className="w-full flex-grow bg-gray-50">
-      
+
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-12">
         <div className="max-w-7xl mx-auto px-8">
           <div className="flex justify-between items-center mb-8">
@@ -71,10 +72,10 @@ const CommunityPage: React.FC = () => {
           </div>
 
           <div className="lg:col-span-1">
-            {/* <Sidebar
+            <CommunitySideBar
               popularTopics={popularTopics}
               experts={experts}
-            /> */}
+            />
           </div>
         </div>
       </div>

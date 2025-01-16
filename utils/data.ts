@@ -1,5 +1,33 @@
 import { PostProps } from "@/utils/types";
 
+export const popularTopics = [
+  { id: 1, category: "収納", title: "子育て世帯の収納アイデア特集" },
+  { id: 2, category: "コスト", title: "予算3,000万円で叶える注文住宅" },
+  { id: 3, category: "間取り", title: "二世帯住宅の失敗しない間取り" },
+  { id: 4, category: "素材", title: "床材の選び方完全ガイド" },
+];
+
+export const experts = [
+  {
+    id: 1,
+    name: "山田一郎",
+    role: "建築家・一級建築士",
+    avatar: "/imgs/avatar/01.jpg",
+  },
+  {
+    id: 2,
+    name: "鈴木設計事務所",
+    role: "設計事務所",
+    avatar: "/imgs/avatar/02.jpg",
+  },
+  {
+    id: 3,
+    name: "中村美咲",
+    role: "インテリアコーディネーター",
+    avatar: "/imgs/avatar/03.jpg",
+  },
+];
+
 export const initialPosts: PostProps[] = [
   {
     id: 1,

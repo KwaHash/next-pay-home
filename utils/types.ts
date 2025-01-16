@@ -23,3 +23,16 @@ export interface PostProps {
   comments: CommentProps[];
   tags: string[];
 }
+
+export interface PopularTopicsProps {
+  id: number;
+  category: string;
+  title: string;
+}
+
+export interface FeaturedExportProps {
+  id: number;
+  name: string;
+  role: string;
+  avatar: string;
+}
