@@ -113,3 +113,167 @@ export const posts = [
     tags: ["二世帯住宅", "間取り", "収納"],
   },
 ];
+
+export const companies = [
+  {
+    id: 1,
+    name: "自然工房ホーム",
+    image:
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800",
+    rating: 4.8,
+    location: "東京都世田谷区",
+    projects: 450,
+    established: 1985,
+    type: "工務店",
+    description:
+      "自然素材にこだわった家づくりを得意とする工務店です。お客様一人一人の理想 に寄り添い、健康的で快適な住まいを提供します。",
+    specialties: ["自然素材", "省エネ", "注文住宅", "リフォーム"],
+    events: [
+      {
+        id: 1,
+        type: "セミナー",
+        title: "自然素材の家づくり勉強会",
+        date: "2024年4月15日 14:00-16:00",
+        location: "世田谷ショールーム",
+        description:
+          "自然素材を使った家づくりのメリットや注意点について、実例を交えながら詳しく解説します。",
+      },
+      {
+        id: 2,
+        type: "見学会",
+        title: "完成見学会",
+        date: "2024年4月20日-21日 10:00-17:00",
+        location: "世田谷区桜新町",
+        description:
+          "自然素材をふんだんに使用した新築一戸建ての見学会を開催します。",
+      },
+    ],
+    examples: [
+      {
+        id: 1,
+        title: "自然素材の平屋",
+        image:
+          "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        id: 2,
+        title: "木のぬくもりを感じる家",
+        image:
+          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        id: 3,
+        title: "パッシブデザインの家",
+        image:
+          "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "モダンライフ建設",
+    image:
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
+    rating: 4.7,
+    location: "神奈川県横浜市",
+    projects: 320,
+    established: 1990,
+    type: "ハウスメーカー",
+    description:
+      "最新の技術と洗練されたデザインで、都市部での暮らしに最適な住まいづくりを提案。高性能と美しさを両立した家づくりが特徴です。",
+    specialties: ["デザイン住宅", "狭小住宅", "二世帯住宅", "ZEH"],
+    events: [
+      {
+        id: 1,
+        type: "セミナー",
+        title: "ZEH住宅セミナー",
+        date: "2024年4月22日 13:00-15:00",
+        location: "横浜ショールーム",
+        description:
+          "ゼロエネルギー住宅の仕組みと補助金制度について詳しく解説します。",
+      },
+    ],
+    examples: [
+      {
+        id: 1,
+        title: "モダンな都市型住宅",
+        image:
+          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        id: 2,
+        title: "スタイリッシュな二世帯住宅",
+        image:
+          "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        id: 3,
+        title: "デザイナーズ住宅",
+        image:
+          "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800",
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "匠心ホームズ",
+    image:
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800",
+    rating: 4.9,
+    location: "埼玉県さいたま市",
+    projects: 280,
+    established: 1978,
+    type: "工務店",
+    description:
+      "代々受け継がれる伝統的な技術と現代のニーズを組み合わせた家づくり。木の温もりを大切にした和モダンな住まいが人気です。",
+    specialties: ["和モダン", "木造住宅", "古民家再生", "パッシブデザイン"],
+    events: [
+      {
+        id: 1,
+        type: "見学会",
+        title: "和モダン住宅見学会",
+        date: "2024年4月29日-30日 10:00-17:00",
+        location: "さいたま市浦和区",
+        description:
+          "伝統的な和の要素を現代的にアレンジした注文住宅の見学会です。",
+      },
+      {
+        id: 2,
+        type: "相談会",
+        title: "個別相談会",
+        date: "2024年5月3日-5日 10:00-17:00",
+        location: "浦和ショールーム",
+        description: "ベテラン設計士との個別相談会を開催します。",
+      },
+    ],
+    examples: [
+      {
+        id: 1,
+        title: "和モダンの家",
+        image:
+          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        id: 2,
+        title: "伝統工法の家",
+        image:
+          "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800",
+      },
+      {
+        id: 3,
+        title: "古民家リノベーション",
+        image:
+          "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800",
+      },
+    ],
+  },
+];
+
+export const areas = ["エリアを選択", "東京都", "神奈川県", "埼玉県", "千葉県"];
+
+export const specialities = [
+  "得意分野で絞り込み",
+  "自然素材",
+  "省エネ住宅",
+  "デザイン住宅",
+];
