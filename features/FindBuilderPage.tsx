@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import MInputField from "@/components/atoms/MInputField";
 import MSelectBox from "@/components/atoms/MSelectBox";
 import { ThemeProvider } from "@mui/material";
 import theme from "@/lib/theme";
@@ -17,11 +18,19 @@ const FindBuilderPage: React.FC = () => {
   const [selectedCompany, setSelectedCompany] = useState<any>(null);
   const [showMessageForm, setShowMessageForm] = useState(false);
 
+  // Set Name Keyword
+  const [name, setName] = useState<string>("");
+  const handleNameChange = (keyword: string) => {
+    setName(keyword);
+  }
+
+  // Set Area Keyword
   const [area, setArea] = useState<string>(areas[0]);
   const handleAreaChange = (selectedArea: string) => {
     setArea(selectedArea);
   };
 
+  // Set Speciality Keyword
   const [speciality, setSpeciality] = useState<string>(specialities[0]);
   const handleSpecialityChange = (selectedSpeciality: string) => {
     setSpeciality(selectedSpeciality);
@@ -41,11 +50,7 @@ const FindBuilderPage: React.FC = () => {
           {/* Previous search filters remain the same */}
           <div className="bg-white rounded-lg shadow p-6 mb-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <input
-                type="text"
-                placeholder="会社名・キーワードで検索"
-                className="px-4 py-2 border rounded"
-              />
+              <MInputField value={name} placeholder="会社名・キーワードで検索" handleChange={handleNameChange} />
               <MSelectBox value={area} options={areas} handleChange={handleAreaChange} />
               <MSelectBox value={speciality} options={specialities} handleChange={handleSpecialityChange} />
             </div>
