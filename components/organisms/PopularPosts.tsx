@@ -2,27 +2,29 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { FiHeart } from "react-icons/fi";
 import { LuMessageCircleMore, LuBookmark } from "react-icons/lu";
-
 import { posts } from '@/utils/data';
+import dynamic from 'next/dynamic';
+
+const Image = dynamic(() => import('next/image'), { ssr: false });
 
 const PopularPosts = () => {
   return (
     <section className="w-full py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-8">人気の投稿</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
             <Link href="#" key={post.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow">
               <div className="relative aspect-video">
                 <Image
                   src={post.image}
                   alt={post.title}
-                  width={330}
-                  height={185}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                  className="absolute object-cover"
+                  priority
                 />
               </div>
               <div className="p-6">

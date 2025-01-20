@@ -1,10 +1,12 @@
+"use client";
+
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { FiHeart } from "react-icons/fi";
 import { LuMessageCircleMore } from "react-icons/lu";
-
-
 import { PostProps } from '@/utils/types';
+import dynamic from 'next/dynamic';
+
+const Image = dynamic(() => import('next/image'), { ssr: false });
 
 // import UserProfileModal from './UserProfileModal';
 // import CommentModal from './CommentModal';
@@ -70,11 +72,12 @@ const PostCard: React.FC<PostCardProps> = ({ post, onLike, onComment }) => {
         {post.image && (
           <div className="relative aspect-video mb-4">
             <Image
-              width={756}
-              height={256}
               src={post.image}
               alt={post.title}
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              sizes="(max-width: 1023px) 100vw, 66vw"
+              className="absolute object-cover"
+              priority
             />
           </div>
         )}
