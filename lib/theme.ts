@@ -13,6 +13,22 @@ const theme = createTheme({
       primary: "#686868", // Default primary text color
     },
   },
+  components: {
+    MuiSelect: {
+      styleOverrides: {
+        select: {
+          padding: "10px", // Reset padding for select elements
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          padding: "10px", // Reset padding for outlined input elements
+        },
+      },
+    },
+  },
 });
 
 export default theme;
