@@ -2,55 +2,29 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { FiHeart } from "react-icons/fi";
 import { LuMessageCircleMore, LuBookmark } from "react-icons/lu";
+import { posts } from '@/utils/data';
+import dynamic from 'next/dynamic';
 
-const posts = [
-  {
-    id: 1,
-    title: "自然素材にこだわった平屋の家",
-    image: "/imgs/posts/01.jpg",
-    author: "田中さん家",
-    likes: 234,
-    comments: 45,
-    tags: ["平屋", "自然素材", "和モダン"]
-  },
-  {
-    id: 2,
-    title: "コストを抑えた高性能住宅",
-    image: "/imgs/posts/02.jpg",
-    author: "佐藤さん家",
-    likes: 189,
-    comments: 32,
-    tags: ["コスト削減", "高性能", "省エネ"]
-  },
-  {
-    id: 3,
-    title: "二世帯住宅の快適な暮らし",
-    image: "/imgs/posts/03.jpg",
-    author: "鈴木さん家",
-    likes: 156,
-    comments: 28,
-    tags: ["二世帯住宅", "間取り", "収納"]
-  }
-];
+const Image = dynamic(() => import('next/image'), { ssr: false });
 
 const PopularPosts = () => {
   return (
     <section className="w-full py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-8">人気の投稿</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
             <Link href="#" key={post.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow">
               <div className="relative aspect-video">
                 <Image
                   src={post.image}
                   alt={post.title}
-                  width={330}
-                  height={185}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                  className="absolute object-cover"
+                  priority
                 />
               </div>
               <div className="p-6">
