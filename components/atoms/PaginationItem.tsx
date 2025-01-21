@@ -15,7 +15,7 @@ const PaginationItem: React.FC<IPaginationItem> = ({
   return (
     <Stack spacing={0}>
       <Pagination
-        className="mx-auto mb-5"
+        className="mx-auto"
         count={totalPages}
         onChange={(event: React.ChangeEvent<any>, page: number) =>
           setCurrentPage(page - 1)
