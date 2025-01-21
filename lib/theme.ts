@@ -45,6 +45,30 @@ const theme = createTheme({
         },
       },
     },
+    MuiPagination: {
+      styleOverrides: {
+        ul: {
+          justifyContent: "center", // Center align the pagination controls
+        },
+        root: {
+          "& .MuiButtonBase-root": {
+            border: "1px solid #ddd",
+            color: "#4f46e5",
+            fontSize: "18px",
+            width: "40px",
+            height: "40px",
+          },
+          "& .Mui-selected": {
+            backgroundColor: "#4f46e5 !important",
+            border: "1px solid #4f46e5",
+            color: "white",
+          },
+          "& .Mui-selected:hover": {
+            backgroundColor: "#3f40d5 !important",
+          },
+        },
+      },
+    },
   },
 });
 

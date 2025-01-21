@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material";
 
+import PaginationItem from "@/components/atoms/PaginationItem";
 import BuilderCard from "@/components/molecules/card/BuilderCard";
 import BuilderSearchBar, { IBuilderSearchForm } from "@/components/molecules/searchbar/BuilderSearchBar";
 
@@ -81,6 +82,11 @@ const FindBuilderPage: React.FC = () => {
 
           {/* Builder list */}
           <div className="grid grid-cols-1 gap-6">
+            <PaginationItem
+              totalPages={Math.ceil(builderItems.length / 10)}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+            />
             {selectedBuilderItems.map((builder) => (
               <BuilderCard
                 key={builder.id}
