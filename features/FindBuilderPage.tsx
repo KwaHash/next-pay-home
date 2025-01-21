@@ -2,20 +2,22 @@
 
 import { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/material";
-import theme from "@/lib/theme";
 
-import { CgClose } from "react-icons/cg";
-import { FaRegStar } from "react-icons/fa";
-import { FiFileText } from "react-icons/fi";
-import { LuBuilding2, LuCalendar, LuMapPin, LuUsers, LuClock, LuMessageCircleMore } from "react-icons/lu";
 import BuilderCard from "@/components/molecules/card/BuilderCard";
 import BuilderSearchBar, { IBuilderSearchForm } from "@/components/molecules/searchbar/BuilderSearchBar";
 
-import { builders, areas, specialities } from "@/utils/data";
+import { builders } from "@/utils/data";
+import theme from "@/lib/theme";
+import { BuilderProps } from "@/utils/types";
 
 const FindBuilderPage: React.FC = () => {
   const [selectedCompany, setSelectedCompany] = useState<any>(null);
   const [showMessageForm, setShowMessageForm] = useState(false);
+
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [allBuilders, setAllBuilders] = useState<BuilderProps[]>(builders);
+  const [builderItems, setBuilderItems] = useState<BuilderProps[]>([]);
+  const [selectedBuilderItems, setSelectedBuilderItems] = useState<BuilderProps[]>([]);
 
   const [searchData, setSearchData] = useState<IBuilderSearchForm>({
     name: "",
@@ -25,10 +27,41 @@ const FindBuilderPage: React.FC = () => {
 
   useEffect(() => {
     const { name, area, speciality } = searchData;
-    if (name) {
-
+    let filteredItems = allBuilders;
+    const builderName = name.trim();
+    // Search By Builder Name
+    if (builderName) {
+      filteredItems = filteredItems.filter(builder => {
+        if (builder.name.includes(builderName)) return true;
+        return false;
+      })
     }
+
+    // Search By Builder Location
+    if (area !== "エリアを選択") {
+      filteredItems = filteredItems.filter(builder => {
+        if (builder.location.includes(area)) return true;
+        return false;
+      })
+    }
+
+    // Search By Builder Speciality
+    if (speciality !== "得意分野で絞り込み") {
+      filteredItems = filteredItems.filter(builder => {
+        if (builder.specialities.includes(speciality)) return true;
+        return false;
+      })
+    }
+    setBuilderItems(filteredItems);
   }, [searchData]);
+
+  useEffect(() => {
+    const selectedItems = builderItems.slice(
+      currentPage * 10,
+      (currentPage + 1) * 10
+    );
+    setSelectedBuilderItems(selectedItems);
+  }, [builderItems, currentPage]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -48,7 +81,7 @@ const FindBuilderPage: React.FC = () => {
 
           {/* Builder list */}
           <div className="grid grid-cols-1 gap-6">
-            {builders.map((builder) => (
+            {selectedBuilderItems.map((builder) => (
               <BuilderCard
                 key={builder.id}
                 builder={builder}
