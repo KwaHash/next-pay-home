@@ -118,8 +118,7 @@ export const companies = [
   {
     id: 1,
     name: "自然工房ホーム",
-    image:
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800",
+    image: "/imgs/post/01.jpg",
     rating: 4.8,
     location: "東京都世田谷区",
     projects: 450,
@@ -172,8 +171,7 @@ export const companies = [
   {
     id: 2,
     name: "モダンライフ建設",
-    image:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
+    image: "/imgs/post/02.jpg",
     rating: 4.7,
     location: "神奈川県横浜市",
     projects: 320,
@@ -217,8 +215,7 @@ export const companies = [
   {
     id: 3,
     name: "匠心ホームズ",
-    image:
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800",
+    image: "/imgs/post/03.jpg",
     rating: 4.9,
     location: "埼玉県さいたま市",
     projects: 280,

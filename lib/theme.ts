@@ -5,12 +5,12 @@ const theme = createTheme({
     fontFamily: `-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic",
       Verdana, Meiryo, "M+ 1p", sans-serif`,
     allVariants: {
-      color: "#686868", // Default text color
+      color: "#484848", // Default text color
     },
   },
   palette: {
     text: {
-      primary: "#686868", // Default primary text color
+      primary: "#484848", // Default primary text color
     },
   },
   components: {
