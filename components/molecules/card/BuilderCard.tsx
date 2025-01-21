@@ -1,9 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
-import { FiHeart } from "react-icons/fi";
-import { LuMessageCircleMore } from "react-icons/lu";
-import { PostProps } from '@/utils/types';
+import React from 'react';
 import dynamic from 'next/dynamic';
 import { GiRoundStar } from "react-icons/gi";
 import { LuBuilding2, LuMapPin, LuUsers, LuClock } from "react-icons/lu";
