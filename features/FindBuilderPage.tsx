@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import MInputField from "@/components/atoms/MInputField";
-import MSelectBox from "@/components/atoms/MSelectBox";
 import { ThemeProvider } from "@mui/material";
 import theme from "@/lib/theme";
 
@@ -11,6 +9,7 @@ import { FaRegStar } from "react-icons/fa";
 import { FiFileText } from "react-icons/fi";
 import { LuBuilding2, LuCalendar, LuMapPin, LuUsers, LuClock, LuMessageCircleMore } from "react-icons/lu";
 import BuilderCard from "@/components/molecules/card/BuilderCard";
+import BuilderSearchBar, { IBuilderSearchForm } from "@/components/molecules/searchbar/BuilderSearchBar";
 
 import { companies, areas, specialities } from "@/utils/data";
 
@@ -18,23 +17,11 @@ const FindBuilderPage: React.FC = () => {
   const [selectedCompany, setSelectedCompany] = useState<any>(null);
   const [showMessageForm, setShowMessageForm] = useState(false);
 
-  // Set Name Keyword
-  const [name, setName] = useState<string>("");
-  const handleNameChange = (keyword: string) => {
-    setName(keyword);
-  }
-
-  // Set Area Keyword
-  const [area, setArea] = useState<string>(areas[0]);
-  const handleAreaChange = (selectedArea: string) => {
-    setArea(selectedArea);
-  };
-
-  // Set Speciality Keyword
-  const [speciality, setSpeciality] = useState<string>(specialities[0]);
-  const handleSpecialityChange = (selectedSpeciality: string) => {
-    setSpeciality(selectedSpeciality);
-  }
+  const [searchData, setSearchData] = useState<IBuilderSearchForm>({
+    name: "",
+    area: "エリアを選択",
+    speciality: "得意分野で絞り込み",
+  });
 
   return (
     <ThemeProvider theme={theme}>
@@ -49,11 +36,7 @@ const FindBuilderPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 py-8">
           {/* Search Filters */}
           <div className="bg-white rounded shadow p-6 mb-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <MInputField value={name} placeholder="会社名・キーワードで検索" handleChange={handleNameChange} />
-              <MSelectBox value={area} options={areas} handleChange={handleAreaChange} />
-              <MSelectBox value={speciality} options={specialities} handleChange={handleSpecialityChange} />
-            </div>
+            <BuilderSearchBar setSearchData={setSearchData} />
           </div>
 
           {/* Company list */}

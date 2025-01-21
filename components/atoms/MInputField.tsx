@@ -1,19 +1,26 @@
 import TextField from '@mui/material/TextField';
+import { Control, Controller } from "react-hook-form";
 
 interface MInputFieldProps {
-  value: string;
+  id: string;
+  value?: string;
   placeholder?: string;
-  handleChange: (value: string) => void;
+  control?: Control<any>;
 }
 
-const MInputField: React.FC<MInputFieldProps> = ({ value, placeholder = "", handleChange }) => {
+const MInputField: React.FC<MInputFieldProps> = ({ id, value = "", placeholder, control }) => {
   return (
-    <TextField
-      value={value}
-      placeholder={placeholder}
-      onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-        handleChange(event.target.value);
-      }}
+    <Controller
+      name={id}
+      control={control}
+      defaultValue={value}
+      render={({ field }) => (
+        <TextField
+          {...field}
+          id={id}
+          placeholder={placeholder}
+        />
+      )}
     />
   )
 }
