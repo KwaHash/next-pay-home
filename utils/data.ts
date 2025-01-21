@@ -114,12 +114,11 @@ export const posts = [
   },
 ];
 
-export const companies = [
+export const builders = [
   {
     id: 1,
     name: "自然工房ホーム",
-    image:
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800",
+    image: "/imgs/post/01.jpg",
     rating: 4.8,
     location: "東京都世田谷区",
     projects: 450,
@@ -127,7 +126,7 @@ export const companies = [
     type: "工務店",
     description:
       "自然素材にこだわった家づくりを得意とする工務店です。お客様一人一人の理想 に寄り添い、健康的で快適な住まいを提供します。",
-    specialties: ["自然素材", "省エネ", "注文住宅", "リフォーム"],
+    specialities: ["自然素材", "省エネ", "注文住宅", "リフォーム"],
     events: [
       {
         id: 1,
@@ -172,8 +171,7 @@ export const companies = [
   {
     id: 2,
     name: "モダンライフ建設",
-    image:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
+    image: "/imgs/post/02.jpg",
     rating: 4.7,
     location: "神奈川県横浜市",
     projects: 320,
@@ -181,7 +179,7 @@ export const companies = [
     type: "ハウスメーカー",
     description:
       "最新の技術と洗練されたデザインで、都市部での暮らしに最適な住まいづくりを提案。高性能と美しさを両立した家づくりが特徴です。",
-    specialties: ["デザイン住宅", "狭小住宅", "二世帯住宅", "ZEH"],
+    specialities: ["デザイン住宅", "狭小住宅", "二世帯住宅", "ZEH"],
     events: [
       {
         id: 1,
@@ -217,8 +215,7 @@ export const companies = [
   {
     id: 3,
     name: "匠心ホームズ",
-    image:
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800",
+    image: "/imgs/post/03.jpg",
     rating: 4.9,
     location: "埼玉県さいたま市",
     projects: 280,
@@ -226,7 +223,7 @@ export const companies = [
     type: "工務店",
     description:
       "代々受け継がれる伝統的な技術と現代のニーズを組み合わせた家づくり。木の温もりを大切にした和モダンな住まいが人気です。",
-    specialties: ["和モダン", "木造住宅", "古民家再生", "パッシブデザイン"],
+    specialities: ["和モダン", "木造住宅", "古民家再生", "パッシブデザイン"],
     events: [
       {
         id: 1,

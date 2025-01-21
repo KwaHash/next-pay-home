@@ -24,7 +24,7 @@ const CTASection = () => {
             description="気になる工務店の詳しい情報をチェック"
             buttonText="無料で資料請求"
             color="indigo"
-            linkUrl="/"
+            linkUrl="/request"
           />
           <CTACard
             icon={<LuBuilding2 className="w-8 h-8" />}
@@ -32,7 +32,7 @@ const CTASection = () => {
             description="あなたに合った工務店を見つける"
             buttonText="工務店を探す"
             color="pink"
-            linkUrl="/"
+            linkUrl="/find-builder"
           />
         </div>
       </div>

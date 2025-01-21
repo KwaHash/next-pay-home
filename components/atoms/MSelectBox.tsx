@@ -1,28 +1,33 @@
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
+import { Control, Controller } from 'react-hook-form';
 
 interface MSelectBoxProps {
-  value: string;
+  id: string;
   options: string[];
-  handleChange: (value: string) => void;
+  value?: string;
+  control: Control<any>;
 }
 
-const MSelectBox: React.FC<MSelectBoxProps> = ({ value, options, handleChange }) => {
-  const handleSelectChange = (event: SelectChangeEvent<string>) => {
-    handleChange(event.target.value);
-  };
-
+const MSelectBox: React.FC<MSelectBoxProps> = ({ id, options, value = options[0], control }) => {
   return (
     <FormControl>
-      <Select
-        value={value}
-        onChange={handleSelectChange}
-      >
-        {options.map((option) => (
-          <MenuItem key={option} value={option}>{option}</MenuItem>
-        ))}
-      </Select>
+      <Controller
+        name={id}
+        control={control}
+        defaultValue={value}
+        render={({ field }) => (
+          <Select
+            {...field}
+            id={id}
+          >
+            {options.map((option) => (
+              <MenuItem key={option} value={option}>{option}</MenuItem>
+            ))}
+          </Select>
+        )}
+      />
     </FormControl>
   )
 }
