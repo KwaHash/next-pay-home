@@ -11,7 +11,7 @@ import { LuBuilding2, LuCalendar, LuMapPin, LuUsers, LuClock, LuMessageCircleMor
 import BuilderCard from "@/components/molecules/card/BuilderCard";
 import BuilderSearchBar, { IBuilderSearchForm } from "@/components/molecules/searchbar/BuilderSearchBar";
 
-import { companies, areas, specialities } from "@/utils/data";
+import { builders, areas, specialities } from "@/utils/data";
 
 const FindBuilderPage: React.FC = () => {
   const [selectedCompany, setSelectedCompany] = useState<any>(null);
@@ -22,6 +22,13 @@ const FindBuilderPage: React.FC = () => {
     area: "エリアを選択",
     speciality: "得意分野で絞り込み",
   });
+
+  useEffect(() => {
+    const { name, area, speciality } = searchData;
+    if (name) {
+
+    }
+  }, [searchData]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -39,16 +46,12 @@ const FindBuilderPage: React.FC = () => {
             <BuilderSearchBar setSearchData={setSearchData} />
           </div>
 
-          {/* Company list */}
+          {/* Builder list */}
           <div className="grid grid-cols-1 gap-6">
-            {companies.map((company) => (
+            {builders.map((builder) => (
               <BuilderCard
-                key={company.id}
-                company={company}
-                onClick={() => {
-                  setSelectedCompany(company);
-                  setShowMessageForm(false);
-                }}
+                key={builder.id}
+                builder={builder}
               />
             ))}
           </div>

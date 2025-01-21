@@ -36,3 +36,16 @@ export interface FeaturedExportProps {
   role: string;
   avatar: string;
 }
+
+export interface BuilderProps {
+  id: number;
+  name: string;
+  image: string;
+  rating: number;
+  location: string;
+  projects: number;
+  established: number;
+  type: string;
+  description: string;
+  specialities: string[];
+}

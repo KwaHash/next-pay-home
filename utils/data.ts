@@ -114,7 +114,7 @@ export const posts = [
   },
 ];
 
-export const companies = [
+export const builders = [
   {
     id: 1,
     name: "自然工房ホーム",
@@ -126,7 +126,7 @@ export const companies = [
     type: "工務店",
     description:
       "自然素材にこだわった家づくりを得意とする工務店です。お客様一人一人の理想 に寄り添い、健康的で快適な住まいを提供します。",
-    specialties: ["自然素材", "省エネ", "注文住宅", "リフォーム"],
+    specialities: ["自然素材", "省エネ", "注文住宅", "リフォーム"],
     events: [
       {
         id: 1,
@@ -179,7 +179,7 @@ export const companies = [
     type: "ハウスメーカー",
     description:
       "最新の技術と洗練されたデザインで、都市部での暮らしに最適な住まいづくりを提案。高性能と美しさを両立した家づくりが特徴です。",
-    specialties: ["デザイン住宅", "狭小住宅", "二世帯住宅", "ZEH"],
+    specialities: ["デザイン住宅", "狭小住宅", "二世帯住宅", "ZEH"],
     events: [
       {
         id: 1,
@@ -223,7 +223,7 @@ export const companies = [
     type: "工務店",
     description:
       "代々受け継がれる伝統的な技術と現代のニーズを組み合わせた家づくり。木の温もりを大切にした和モダンな住まいが人気です。",
-    specialties: ["和モダン", "木造住宅", "古民家再生", "パッシブデザイン"],
+    specialities: ["和モダン", "木造住宅", "古民家再生", "パッシブデザイン"],
     events: [
       {
         id: 1,
