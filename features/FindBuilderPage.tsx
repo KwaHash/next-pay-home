@@ -81,19 +81,25 @@ const FindBuilderPage: React.FC = () => {
           </div>
 
           {/* Builder list */}
-          <div className="grid grid-cols-1 gap-6">
-            <PaginationItem
-              totalPages={Math.ceil(builderItems.length / 10)}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-            />
-            {selectedBuilderItems.map((builder) => (
-              <BuilderCard
-                key={builder.id}
-                builder={builder}
+          {selectedBuilderItems.length ? (
+            <div className="grid grid-cols-1 gap-6">
+              <PaginationItem
+                totalPages={Math.ceil(builderItems.length / 10)}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
               />
-            ))}
-          </div>
+              {selectedBuilderItems.map((builder) => (
+                <BuilderCard
+                  key={builder.id}
+                  builder={builder}
+                />
+              ))}
+            </div>
+          ) : (
+            <p className="bg-[#4f46e5] border-[#3f40d5] text-white border-[1px] p-4 rounded-sm">
+              ハウスメーカーがありません。
+            </p>
+          )}
         </div>
       </div>
     </ThemeProvider>
