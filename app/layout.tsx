@@ -1,6 +1,8 @@
 import HolyLoader from 'holy-loader'
 import { type Metadata, type Viewport } from 'next'
+import Providers from './providers'
 import NavBar from '@/components/organisms/NavBar'
+import ScrollTopButton from '@/components/scroll-top-button'
 import { env } from '@/lib/config'
 import './globals.css'
 
@@ -66,8 +68,11 @@ export default function RootLayout({
           height="2px"
           easing="linear"
         />
-        <NavBar />
-        {children}
+        <Providers>
+          <NavBar />
+          {children}
+          <ScrollTopButton />
+        </Providers>
       </body>
     </html>
   )
