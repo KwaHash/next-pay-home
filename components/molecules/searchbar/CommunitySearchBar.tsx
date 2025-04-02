@@ -1,5 +1,5 @@
-import React from 'react';
-import { TbSearch } from "react-icons/tb";
+import React from 'react'
+import { TbSearch } from 'react-icons/tb'
 
 interface CommunitySearchBarProps {
   value: string;
@@ -9,9 +9,9 @@ interface CommunitySearchBarProps {
 
 const CommunitySearchBar: React.FC<CommunitySearchBarProps> = ({ value, onChange, onSearch }) => {
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSearch();
-  };
+    e.preventDefault()
+    onSearch()
+  }
 
   return (
     <form onSubmit={handleSubmit} className="flex-1 flex flex-col sm:flex-row gap-4">
@@ -33,7 +33,7 @@ const CommunitySearchBar: React.FC<CommunitySearchBarProps> = ({ value, onChange
         <span className="font-bold">検索する</span>
       </button>
     </form>
-  );
-};
+  )
+}
 
-export default CommunitySearchBar;
+export default CommunitySearchBar

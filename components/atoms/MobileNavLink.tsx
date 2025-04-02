@@ -1,7 +1,7 @@
-"use client";
+'use client'
 
-import { ReactNode } from "react";
-import Link from "next/link";
+import { type ReactNode } from 'react'
+import Link from 'next/link'
 
 interface MobileNavLinkProps {
   icon: ReactNode;
@@ -18,6 +18,6 @@ const MobileNavLink: React.FC<MobileNavLinkProps> = ({ icon, text, linkUrl, onCl
       <p className='mt-1'>{text}</p>
     </Link>
   )
-};
+}
 
-export default MobileNavLink;
+export default MobileNavLink

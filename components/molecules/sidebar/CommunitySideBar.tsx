@@ -1,9 +1,8 @@
-import React from 'react';
-import Image from 'next/image';
-import { HiTrendingUp } from "react-icons/hi";
-import { FaRegStar } from "react-icons/fa";
-
-import { PopularTopicsProps, FeaturedExportProps } from '@/utils/types';
+import React from 'react'
+import Image from 'next/image'
+import { FaRegStar } from 'react-icons/fa'
+import { HiTrendingUp } from 'react-icons/hi'
+import { type PopularTopicsProps, type FeaturedExportProps } from '@/utils/types'
 
 interface CommunitySideBarProps {
   popularTopics: PopularTopicsProps[];
@@ -56,7 +55,7 @@ const CommunitySideBar: React.FC<CommunitySideBarProps> = ({ popularTopics, expe
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CommunitySideBar;
+export default CommunitySideBar

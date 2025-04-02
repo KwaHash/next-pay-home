@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import React, { useState } from 'react';
-import { FiHeart } from "react-icons/fi";
-import { LuMessageCircleMore } from "react-icons/lu";
-import { PostProps } from '@/utils/types';
-import dynamic from 'next/dynamic';
+import React, { useState } from 'react'
+import dynamic from 'next/dynamic'
+import { FiHeart } from 'react-icons/fi'
+import { LuMessageCircleMore } from 'react-icons/lu'
+import { type PostProps } from '@/utils/types'
 
-const Image = dynamic(() => import('next/image'), { ssr: false });
+const Image = dynamic(() => import('next/image'), { ssr: false })
 
 // import UserProfileModal from './UserProfileModal';
 // import CommentModal from './CommentModal';
@@ -20,31 +20,31 @@ interface PostCardProps {
 
 const PostCard: React.FC<PostCardProps> = ({ post, onLike, onComment }) => {
   // const { isLoggedIn } = useAuth();
-  const [showUserProfile, setShowUserProfile] = useState(false);
-  const [showCommentModal, setShowCommentModal] = useState(false);
-  const [isLiked, setIsLiked] = useState(false);
+  const [showUserProfile, setShowUserProfile] = useState(false)
+  const [showCommentModal, setShowCommentModal] = useState(false)
+  const [isLiked, setIsLiked] = useState(false)
 
   const handleLike = () => {
     // if (!isLoggedIn) {
     //   onNavigate('login');
     //   return;
     // }
-    setIsLiked(!isLiked);
-    onLike?.(post.id);
-  };
+    setIsLiked(!isLiked)
+    onLike?.(post.id)
+  }
 
   const handleComment = () => {
     // if (!isLoggedIn) {
     //   onNavigate('login');
     //   return;
     // }
-    setShowCommentModal(true);
-  };
+    setShowCommentModal(true)
+  }
 
   const handleCommentSubmit = (comment: string) => {
-    onComment?.(post.id, comment);
-    setShowCommentModal(false);
-  };
+    onComment?.(post.id, comment)
+    setShowCommentModal(false)
+  }
 
   return (
     <div className="bg-white rounded-lg shadow hover:shadow-md transition-shadow">
@@ -122,7 +122,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, onLike, onComment }) => {
         />
       )} */}
     </div>
-  );
-};
+  )
+}
 
-export default PostCard;
+export default PostCard

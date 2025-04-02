@@ -1,5 +1,5 @@
-import React from 'react';
-import { PRIMARY_FILTERS } from '@/utils/constant';
+import React from 'react'
+import { PRIMARY_FILTERS } from '@/utils/constant'
 
 interface CommunityFilterTabProps {
   activeFilter: string;
@@ -24,7 +24,7 @@ const CommunityFilterTab: React.FC<CommunityFilterTabProps> = ({ activeFilter, o
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CommunityFilterTab;
+export default CommunityFilterTab

@@ -1,20 +1,19 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
-import NewPostButton from "@/components/molecules/button/NewPostBtn";
-import CommunitySearchBar from "@/components/molecules/searchbar/CommunitySearchBar";
-import CommunityFilterTab from "@/components/molecules/CommunityFilterTab";
-import PostCard from "@/components/molecules/card/PostCard";
-import CommunitySideBar from "@/components/molecules/sidebar/CommunitySideBar";
-
-import { PostProps } from "@/utils/types";
-import { initialPosts, popularTopics, experts } from "@/utils/data";
+import { useEffect, useState } from 'react'
+import CommunityFilterTab from '@/components/molecules/CommunityFilterTab'
+import NewPostButton from '@/components/molecules/button/NewPostBtn'
+import PostCard from '@/components/molecules/card/PostCard'
+import CommunitySearchBar from '@/components/molecules/searchbar/CommunitySearchBar'
+import CommunitySideBar from '@/components/molecules/sidebar/CommunitySideBar'
+import { initialPosts, popularTopics, experts } from '@/utils/data'
+import { type PostProps } from '@/utils/types'
 
 const CommunityPage: React.FC = () => {
-  const [showNewPostModal, setShowNewPostModal] = useState(false);
-  const [keyword, setKeyword] = useState<string>('');
-  const [activeFilter, setActiveFilter] = useState<string>('すべて');
-  const [posts, setPosts] = useState<PostProps[]>(initialPosts);
+  const [showNewPostModal, setShowNewPostModal] = useState(false)
+  const [keyword, setKeyword] = useState<string>('')
+  const [activeFilter, setActiveFilter] = useState<string>('すべて')
+  const [posts, setPosts] = useState<PostProps[]>(initialPosts)
 
   useEffect(() => {
 
@@ -25,12 +24,12 @@ const CommunityPage: React.FC = () => {
     //   onNavigate('login');
     //   return;
     // }
-    setShowNewPostModal(true);
-  };
+    setShowNewPostModal(true)
+  }
 
   const handleSearch = () => {
 
-  };
+  }
 
   return (
     <div className="w-full flex-grow bg-gray-50">
@@ -87,4 +86,4 @@ const CommunityPage: React.FC = () => {
   )
 }
 
-export default CommunityPage;
+export default CommunityPage

@@ -1,7 +1,7 @@
-import Hero from "@/components/organisms/Hero";
-import AIChat from "@/components/organisms/AIChat";
-import CTASection from "@/components/organisms/CTASection";
-import PopularPosts from "@/components/organisms/PopularPosts";
+import AIChat from '@/components/organisms/AIChat'
+import CTASection from '@/components/organisms/CTASection'
+import Hero from '@/components/organisms/Hero'
+import PopularPosts from '@/components/organisms/PopularPosts'
 
 export default function Home() {
   return (
@@ -11,5 +11,5 @@ export default function Home() {
       <AIChat />
       <CTASection />
     </main>
-  );
+  )
 }

@@ -1,14 +1,14 @@
-import TextField from '@mui/material/TextField';
-import { Control, Controller } from "react-hook-form";
+import TextField from '@mui/material/TextField'
+import { type Control, Controller } from 'react-hook-form'
 
 interface MInputFieldProps {
   id: string;
   value?: string;
   placeholder?: string;
-  control?: Control<any>;
+  control?: Control<any>;   // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
-const MInputField: React.FC<MInputFieldProps> = ({ id, value = "", placeholder, control }) => {
+const MInputField: React.FC<MInputFieldProps> = ({ id, value = '', placeholder, control }) => {
   return (
     <Controller
       name={id}
@@ -25,4 +25,4 @@ const MInputField: React.FC<MInputFieldProps> = ({ id, value = "", placeholder, 
   )
 }
 
-export default MInputField;
+export default MInputField

@@ -1,8 +1,8 @@
 import HolyLoader from 'holy-loader'
 import { type Metadata, type Viewport } from 'next'
-import NavBar from "@/components/organisms/NavBar"
+import NavBar from '@/components/organisms/NavBar'
 import { env } from '@/lib/config'
-import "./globals.css";
+import './globals.css'
 
 export const viewport: Viewport = {
   themeColor: [
@@ -70,5 +70,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  );
+  )
 }

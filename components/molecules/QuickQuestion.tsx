@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 interface QuickQuestionProps {
   question: string;
@@ -13,6 +13,6 @@ const QuickQuestion: React.FC<QuickQuestionProps> = ({ question, category, linkU
     </span>
     <p className="mt-2 text-gray-900">{question}</p>
   </Link>
-);
+)
 
-export default QuickQuestion;
+export default QuickQuestion

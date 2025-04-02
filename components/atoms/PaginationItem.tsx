@@ -1,5 +1,5 @@
-import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
+import Pagination from '@mui/material/Pagination'
+import Stack from '@mui/material/Stack'
 
 interface IPaginationItem {
   totalPages: number;
@@ -17,7 +17,7 @@ const PaginationItem: React.FC<IPaginationItem> = ({
       <Pagination
         className="mx-auto"
         count={totalPages}
-        onChange={(event: React.ChangeEvent<any>, page: number) =>
+        onChange={(event: React.ChangeEvent<any>, page: number) =>    // eslint-disable-line @typescript-eslint/no-explicit-any
           setCurrentPage(page - 1)
         }
         page={currentPage + 1}
@@ -25,7 +25,7 @@ const PaginationItem: React.FC<IPaginationItem> = ({
         showLastButton
       />
     </Stack>
-  );
-};
+  )
+}
 
-export default PaginationItem;
+export default PaginationItem
