@@ -1,19 +1,18 @@
-"use client";
+'use client'
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import NavLink from '@/components/atoms/NavLink';
-import MobileNavLink from '@/components/atoms/MobileNavLink';
-
-import { FiHome, FiMessageCircle, FiUser, FiFileText } from "react-icons/fi";
-import { CgClose } from "react-icons/cg";
-import { LuBuilding2 } from "react-icons/lu";
-import { RiRobot2Line } from "react-icons/ri";
-import { SlMenu } from "react-icons/sl";
+import React, { useState } from 'react'
+import Link from 'next/link'
+import { CgClose } from 'react-icons/cg'
+import { FiHome, FiMessageCircle, FiUser, FiFileText } from 'react-icons/fi'
+import { LuBuilding2 } from 'react-icons/lu'
+import { RiRobot2Line } from 'react-icons/ri'
+import { SlMenu } from 'react-icons/sl'
+import MobileNavLink from '@/components/atoms/MobileNavLink'
+import NavLink from '@/components/atoms/NavLink'
 
 const NavBar = () => {
-  const isCompanyLoggedIn = true;
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isCompanyLoggedIn = true
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
     <nav className="w-full fixed bg-white shadow-lg z-50">
@@ -158,7 +157,7 @@ const NavBar = () => {
         </div>
       )}
     </nav >
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

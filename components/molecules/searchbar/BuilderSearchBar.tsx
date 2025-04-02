@@ -1,11 +1,10 @@
-import React from 'react';
-import { TbSearch } from "react-icons/tb";
-import { useForm } from "react-hook-form";
-import Button from "@mui/material/Button";
-import MInputField from "@/components/atoms/MInputField";
-import MSelectBox from "@/components/atoms/MSelectBox";
-
-import { areas, specialities } from "@/utils/data";
+import React from 'react'
+import Button from '@mui/material/Button'
+import { useForm } from 'react-hook-form'
+import { TbSearch } from 'react-icons/tb'
+import MInputField from '@/components/atoms/MInputField'
+import MSelectBox from '@/components/atoms/MSelectBox'
+import { areas, specialities } from '@/utils/data'
 
 export interface IBuilderSearchForm {
   name: string;
@@ -19,9 +18,9 @@ interface BuilderSearchBarProps {
 
 const BuilderSearchBar: React.FC<BuilderSearchBarProps> = ({ setSearchData }) => {
 
-  const { control, handleSubmit } = useForm<IBuilderSearchForm>();
+  const { control, handleSubmit } = useForm<IBuilderSearchForm>()
   const onSubmit = (data: IBuilderSearchForm) => {
-    setSearchData(data);
+    setSearchData(data)
   }
 
   return (
@@ -36,7 +35,7 @@ const BuilderSearchBar: React.FC<BuilderSearchBarProps> = ({ setSearchData }) =>
         </Button>
       </div>
     </form>
-  );
-};
+  )
+}
 
-export default BuilderSearchBar;
+export default BuilderSearchBar

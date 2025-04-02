@@ -1,6 +1,6 @@
-import React from 'react';
-import Link from 'next/link';
-import { FiPlayCircle } from "react-icons/fi";
+import React from 'react'
+import Link from 'next/link'
+import { FiPlayCircle } from 'react-icons/fi'
 
 const Hero = () => {
   return (
@@ -32,7 +32,7 @@ const Hero = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

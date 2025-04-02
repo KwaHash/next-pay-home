@@ -1,4 +1,4 @@
-import { HiPencilSquare } from "react-icons/hi2";
+import { HiPencilSquare } from 'react-icons/hi2'
 
 interface NewPostBtnProps {
   onClick: () => void;
@@ -13,7 +13,7 @@ const NewPostButton: React.FC<NewPostBtnProps> = ({ onClick }) => {
       <HiPencilSquare className="w-5 h-5" />
       <span className="font-bold">新規投稿</span>
     </button>
-  );
-};
+  )
+}
 
-export default NewPostButton;
+export default NewPostButton

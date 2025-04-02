@@ -1,7 +1,7 @@
-import React from 'react';
-import QuickQuestion from '@/components/molecules/QuickQuestion';
-import { BsSend } from "react-icons/bs";
-import { RiRobot2Line } from "react-icons/ri";
+import React from 'react'
+import { BsSend } from 'react-icons/bs'
+import { RiRobot2Line } from 'react-icons/ri'
+import QuickQuestion from '@/components/molecules/QuickQuestion'
 
 const AIChat = () => {
   return (
@@ -65,7 +65,7 @@ const AIChat = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default AIChat;
+export default AIChat

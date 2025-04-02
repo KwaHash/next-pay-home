@@ -1,8 +1,7 @@
-import React from 'react';
-import CTACard from '@/components/molecules/card/CTACard';
-
-import { FiFileText } from "react-icons/fi";
-import { LuBuilding2 } from "react-icons/lu";
+import React from 'react'
+import { FiFileText } from 'react-icons/fi'
+import { LuBuilding2 } from 'react-icons/lu'
+import CTACard from '@/components/molecules/card/CTACard'
 
 const CTASection = () => {
   return (
@@ -37,7 +36,7 @@ const CTASection = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CTASection;
+export default CTASection

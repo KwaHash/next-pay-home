@@ -1,13 +1,13 @@
-"use client";
+'use client'
 
-import React from 'react';
-import Link from 'next/link';
-import { FiHeart } from "react-icons/fi";
-import { LuMessageCircleMore, LuBookmark } from "react-icons/lu";
-import { posts } from '@/utils/data';
-import dynamic from 'next/dynamic';
+import React from 'react'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
+import { FiHeart } from 'react-icons/fi'
+import { LuMessageCircleMore, LuBookmark } from 'react-icons/lu'
+import { posts } from '@/utils/data'
 
-const Image = dynamic(() => import('next/image'), { ssr: false });
+const Image = dynamic(() => import('next/image'), { ssr: false })
 
 const PopularPosts = () => {
   return (
@@ -56,7 +56,7 @@ const PopularPosts = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default PopularPosts;
+export default PopularPosts

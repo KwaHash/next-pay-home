@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import React from 'react';
-import dynamic from 'next/dynamic';
-import { GiRoundStar } from "react-icons/gi";
-import { LuBuilding2, LuMapPin, LuUsers, LuClock } from "react-icons/lu";
-import { BuilderProps } from '@/utils/types';
+import React from 'react'
+import dynamic from 'next/dynamic'
+import { GiRoundStar } from 'react-icons/gi'
+import { LuBuilding2, LuMapPin, LuUsers, LuClock } from 'react-icons/lu'
+import { type BuilderProps } from '@/utils/types'
 
-const Image = dynamic(() => import('next/image'), { ssr: false });
+const Image = dynamic(() => import('next/image'), { ssr: false })
 
 interface BuilderCardProps {
   builder: BuilderProps;
@@ -70,6 +70,6 @@ const BuilderCard: React.FC<BuilderCardProps> = ({ builder }) => (
       </div>
     </div>
   </div>
-);
+)
 
-export default BuilderCard;
+export default BuilderCard
