@@ -47,42 +47,42 @@ const PostCard: React.FC<PostCardProps> = ({ post, onLike, onComment }) => {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow hover:shadow-md transition-shadow">
-      <div className="p-6">
-        <div className="flex items-center gap-4 mb-4">
+    <div className='bg-white rounded-lg shadow hover:shadow-md transition-shadow'>
+      <div className='p-6'>
+        <div className='flex items-center gap-4 mb-4'>
           <button
             onClick={() => setShowUserProfile(true)}
-            className="flex items-center gap-4 hover:opacity-80 transition-opacity duration-300 ease-out"
+            className='flex items-center gap-4 hover:opacity-80 transition-opacity duration-300 ease-out'
           >
             <Image
               src={post.author.avatar}
               alt={post.author.name}
               width={48}
               height={48}
-              className="w-12 h-12 rounded-full"
+              className='w-12 h-12 rounded-full'
             />
             <div>
-              <p className="font-medium text-gray-900">{post.author.name}</p>
-              <p className="text-sm text-left text-gray-500">{post.date}</p>
+              <p className='font-medium text-gray-900'>{post.author.name}</p>
+              <p className='text-sm text-left text-gray-500'>{post.date}</p>
             </div>
           </button>
         </div>
-        <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
-        <p className="text-gray-600 mb-4">{post.content}</p>
+        <h3 className='text-xl font-semibold mb-2'>{post.title}</h3>
+        <p className='text-gray-600 mb-4'>{post.content}</p>
         {post.image && (
-          <div className="relative aspect-video mb-4">
+          <div className='relative aspect-video mb-4'>
             <Image
               src={post.image}
               alt={post.title}
               fill
-              sizes="(max-width: 1023px) 100vw, 66vw"
-              className="absolute object-cover"
+              sizes='(max-width: 1023px) 100vw, 66vw'
+              className='absolute object-cover'
               priority
             />
           </div>
         )}
-        <div className="flex flex-col-reverse gap-2 md:flex-row md:items-center md:justify-between">
-          <div className="flex mt-4 md:mt-0 items-center gap-6">
+        <div className='flex flex-col-reverse gap-2 md:flex-row md:items-center md:justify-between'>
+          <div className='flex mt-4 md:mt-0 items-center gap-6'>
             <button
               onClick={handleLike}
               className={`flex items-center gap-1 hover:text-indigo-600 transition-all duration-300 ease-out ${isLiked ? 'text-indigo-600' : ''}`}
@@ -92,15 +92,15 @@ const PostCard: React.FC<PostCardProps> = ({ post, onLike, onComment }) => {
             </button>
             <button
               onClick={handleComment}
-              className="flex items-center gap-1 hover:text-indigo-600 transition-all duration-300 ease-out"
+              className='flex items-center gap-1 hover:text-indigo-600 transition-all duration-300 ease-out'
             >
-              <LuMessageCircleMore className="w-5 h-5" />
+              <LuMessageCircleMore className='w-5 h-5' />
               <span>{post.comments.length}</span>
             </button>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className='flex flex-wrap gap-2'>
             {post.tags.map((tag, index) => (
-              <span key={index} className="bg-gray-200 text-gray-600 px-3 py-1 rounded-full text-sm">
+              <span key={index} className='bg-gray-200 text-gray-600 px-3 py-1 rounded-full text-sm'>
                 {tag}
               </span>
             ))}

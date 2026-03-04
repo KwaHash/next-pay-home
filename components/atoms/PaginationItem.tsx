@@ -15,7 +15,7 @@ const PaginationItem: React.FC<IPaginationItem> = ({
   return (
     <Stack spacing={0}>
       <Pagination
-        className="mx-auto"
+        className='mx-auto'
         count={totalPages}
         onChange={(event: React.ChangeEvent<any>, page: number) =>    // eslint-disable-line @typescript-eslint/no-explicit-any
           setCurrentPage(page - 1)
