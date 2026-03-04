@@ -1,10 +1,10 @@
+import NavBar from '@/components/organisms/NavBar'
+import ScrollTopButton from '@/components/scroll-top-button'
+import { env } from '@/lib/config'
 import '@/styles/globals.scss'
 import HolyLoader from 'holy-loader'
 import { type Metadata, type Viewport } from 'next'
 import Providers from './providers'
-import NavBar from '@/components/organisms/NavBar'
-import ScrollTopButton from '@/components/scroll-top-button'
-import { env } from '@/lib/config'
 
 export const viewport: Viewport = {
   themeColor: [
@@ -20,12 +20,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_HOST),
   title: 'ぺいほーむ',
-  applicationName: 'ぺいほーむ',
-  description: '',
+  applicationName: '家づくりAIサポートサービス',
+  description: '家づくりAIサポートサービス',
   openGraph: {
     title: 'ぺいほーむ',
-    siteName: 'ぺいほーむ',
-    description: '',
+    siteName: '家づくりAIサポートサービス',
+    description: '家づくりAIサポートサービス',
     type: 'website',
     images: [''],
   },
