@@ -1,34 +1,55 @@
-import FormControl from '@mui/material/FormControl'
-import MenuItem from '@mui/material/MenuItem'
-import Select from '@mui/material/Select'
+'use client'
+
 import { type Control, Controller } from 'react-hook-form'
 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+
 interface MSelectBoxProps {
-  id: string;
-  options: string[];
-  value?: string;
-  control: Control<any>;    // eslint-disable-line @typescript-eslint/no-explicit-any
+  id: string
+  options: string[]
+  value?: string
+  control: Control<any> // eslint-disable-line @typescript-eslint/no-explicit-any
+  icon?: React.ReactNode
 }
 
-const MSelectBox: React.FC<MSelectBoxProps> = ({ id, options, value = options[0], control }) => {
+const MSelectBox: React.FC<MSelectBoxProps> = ({
+  id,
+  options,
+  value = options[0],
+  control,
+  icon,
+}) => {
   return (
-    <FormControl>
-      <Controller
-        name={id}
-        control={control}
-        defaultValue={value}
-        render={({ field }) => (
-          <Select
-            {...field}
-            id={id}
-          >
+    <Controller
+      name={id}
+      control={control}
+      defaultValue={value}
+      render={({ field }) => (
+        <Select
+          value={field.value ?? ''}
+          onValueChange={field.onChange}
+          onOpenChange={(open) => !open && field.onBlur()}
+        >
+          <SelectTrigger id={id} className='flex items-center rounded-none'>
+            {icon && <span>{icon}</span>}
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
             {options.map((option) => (
-              <MenuItem key={option} value={option}>{option}</MenuItem>
+              <SelectItem key={option} value={option}>
+                {option}
+              </SelectItem>
             ))}
-          </Select>
-        )}
-      />
-    </FormControl>
+          </SelectContent>
+        </Select>
+      )}
+    />
   )
 }
 
