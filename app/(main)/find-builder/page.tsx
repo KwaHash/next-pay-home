@@ -1,4 +1,4 @@
-import FindBuilderPage from '@/features/FindBuilderPage'
+import FindBuilderPage from '@/features/find-builder'
 
 export default function FindBuilder() {
   return (

@@ -1,14 +1,14 @@
 'use client'
 
-import React, { useState } from 'react'
+import MobileNavLink from '@/components/atoms/MobileNavLink'
+import NavLink from '@/components/atoms/NavLink'
 import Link from 'next/link'
+import { useState } from 'react'
 import { CgClose } from 'react-icons/cg'
-import { FiHome, FiMessageCircle, FiUser, FiFileText } from 'react-icons/fi'
+import { FiFileText, FiHome, FiMessageCircle, FiUser } from 'react-icons/fi'
 import { LuBuilding2 } from 'react-icons/lu'
 import { RiRobot2Line } from 'react-icons/ri'
 import { SlMenu } from 'react-icons/sl'
-import MobileNavLink from '@/components/atoms/MobileNavLink'
-import NavLink from '@/components/atoms/NavLink'
 
 const NavBar = () => {
   const isCompanyLoggedIn = true
@@ -36,7 +36,7 @@ const NavBar = () => {
               />
               <NavLink
                 icon={<LuBuilding2 />}
-                text='ハウスメーカーを探'
+                text='ハウスメーカー'
                 linkUrl='/find-builder'
               />
               <NavLink
@@ -110,7 +110,7 @@ const NavBar = () => {
             />
             <MobileNavLink
               icon={<LuBuilding2 />}
-              text='ハウスメーカーを探す'
+              text='ハウスメーカー'
               onClick={() => setIsMenuOpen(false)}
               linkUrl='/find-builder'
             />
