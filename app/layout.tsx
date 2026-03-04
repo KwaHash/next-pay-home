@@ -61,12 +61,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="jp">
-      <body className="flex flex-col min-h-screen">
+    <html lang='jp'>
+      <body className='flex flex-col min-h-screen'>
         <HolyLoader
-          color="#9333ea"
-          height="2px"
-          easing="linear"
+          color='#9333ea'
+          height='2px'
+          easing='linear'
         />
         <Providers>
           <NavBar />

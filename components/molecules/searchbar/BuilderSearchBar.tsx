@@ -25,13 +25,13 @@ const BuilderSearchBar: React.FC<BuilderSearchBarProps> = ({ setSearchData }) =>
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <MInputField id="name" placeholder="会社名・キーワードで検索" control={control} />
-        <MSelectBox id="area" options={areas} control={control} />
-        <MSelectBox id="speciality" options={specialities} control={control} />
-        <Button type="submit" variant="contained">
-          <TbSearch className="w-5 h-5 font-bold" />
-          <span className="font-semibold">検索する</span>
+      <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
+        <MInputField id='name' placeholder='会社名・キーワードで検索' control={control} />
+        <MSelectBox id='area' options={areas} control={control} />
+        <MSelectBox id='speciality' options={specialities} control={control} />
+        <Button type='submit' variant='contained'>
+          <TbSearch className='w-5 h-5 font-bold' />
+          <span className='font-semibold'>検索する</span>
         </Button>
       </div>
     </form>

@@ -5,8 +5,8 @@ import { ThemeProvider } from '@/providers/theme-provider'
 export default function Providers({ children }: PropsWithChildren) {
   return (
     <ThemeProvider
-      attribute="class"
-      defaultTheme="dark"
+      attribute='class'
+      defaultTheme='dark'
       enableSystem
       disableTransitionOnChange
     >

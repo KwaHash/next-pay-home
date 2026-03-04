@@ -17,12 +17,12 @@ const CTACard: React.FC<CTACardProps> = ({ icon, title, description, buttonText,
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-xl transition-shadow">
+    <div className='bg-white rounded-xl shadow-md p-8 text-center hover:shadow-xl transition-shadow'>
       <div className={`inline-block p-3 rounded-full bg-${color}-50 text-${color}-600 mb-6`}>
         {icon}
       </div>
-      <h3 className="text-xl font-semibold text-gray-900 mb-3">{title}</h3>
-      <p className="text-gray-600 mb-6">{description}</p>
+      <h3 className='text-xl font-semibold text-gray-900 mb-3'>{title}</h3>
+      <p className='text-gray-600 mb-6'>{description}</p>
       <Link href={linkUrl}
         className={`block w-full py-3 rounded-lg ${colorClasses[color]} font-bold transition-all duration-300 ease-out`}
       >

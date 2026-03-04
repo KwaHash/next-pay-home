@@ -8,8 +8,8 @@ interface CommunityFilterTabProps {
 
 const CommunityFilterTab: React.FC<CommunityFilterTabProps> = ({ activeFilter, onFilterChange }) => {
   return (
-    <div className="bg-white rounded shadow p-4">
-      <div className="flex flex-wrap gap-3">
+    <div className='bg-white rounded shadow p-4'>
+      <div className='flex flex-wrap gap-3'>
         {PRIMARY_FILTERS.map((filter) => (
           <button
             key={filter}

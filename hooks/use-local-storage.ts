@@ -10,7 +10,7 @@ function useLocalStorage<T>(key: string, defaultValue?: T) {
     queryKey,
     queryFn: () => {
       const item = localStorage.getItem(key)
-      return item ? JSON.parse(item) : defaultValue || null // eslint-disable-line @typescript-eslint/no-unsafe-return
+      return item ? JSON.parse(item) : defaultValue || null  
     },
     retry: false,
   })
