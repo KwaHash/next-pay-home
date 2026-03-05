@@ -1,10 +1,10 @@
 'use client'
 
-import React from 'react'
-import dynamic from 'next/dynamic'
-import { GiRoundStar } from 'react-icons/gi'
-import { LuBuilding2, LuMapPin, LuUsers, LuClock } from 'react-icons/lu'
 import { type BuilderProps } from '@/utils/types'
+import dynamic from 'next/dynamic'
+import React from 'react'
+import { GiRoundStar } from 'react-icons/gi'
+import { LuBuilding2, LuClock, LuMapPin, LuUsers } from 'react-icons/lu'
 
 const Image = dynamic(() => import('next/image'), { ssr: false })
 
@@ -13,9 +13,7 @@ interface BuilderCardProps {
 }
 
 const BuilderCard: React.FC<BuilderCardProps> = ({ builder }) => (
-  <div
-    className='bg-white rounded shadow hover:shadow-md transition-all duration-300 ease-out p-6 cursor-pointer'
-  >
+  <div className='bg-white rounded shadow hover:shadow-md transition-all duration-300 ease-out p-6 cursor-pointer'>
     <div className='flex flex-col md:flex-row gap-6'>
       <div className='relative aspect-video md:w-1/3'>
         <Image

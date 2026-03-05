@@ -1,8 +1,8 @@
 'use client'
 
 import PaginationItem from '@/components/atoms/PaginationItem'
-import BuilderCard from '@/components/molecules/card/BuilderCard'
-import BuilderSearchBar, { type IBuilderSearchForm } from '@/components/molecules/searchbar/BuilderSearchBar'
+import BuilderCard from '@/components/molecules/card/builder-card'
+import BuilderSearchBar, { type IBuilderSearchForm } from '@/components/molecules/searchbar/builder-search-bar'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { builders } from '@/utils/data'
 import { useMemo, useState } from 'react'
@@ -46,13 +46,13 @@ const FindBuilderPage: React.FC = () => {
   return (
     <div className='w-full flex-grow bg-gray-50'>
       <div className='bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-12 sm:py-16 md:py-20'>
-        <div className='max-w-screen-xl mx-auto px-8'>
+        <div className='max-w-screen-xl mx-auto px-4 sm:px-8'>
           <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-4'>優良工務店・ハウスメーカー</h2>
           <p className='text-base sm:text-lg md:text-xl font-medium'>信頼できる会社と出会い、理想の家づくりを</p>
         </div>
       </div>
 
-      <div className='max-w-screen-xl mx-auto p-8'>
+      <div className='max-w-screen-xl mx-auto p-4 sm:p-8'>
         {/* Search Filters */}
         <div className='bg-white rounded shadow p-6 mb-8'>
           <BuilderSearchBar setSearchData={setSearchData} />
@@ -66,7 +66,7 @@ const FindBuilderPage: React.FC = () => {
                 全{builderItems.length}件のうち、{builderItems.length === 0 ? 0 : (currentPage * itemsPerPage) + 1}番から{Math.min((currentPage + 1) * itemsPerPage, builderItems.length)}番までを表示しております。
               </span>
               <div className='flex items-center gap-6'>
-                <span className='text-sm text-muted-foreground'>表示件数:</span>
+                <span className='text-sm'>表示件数:</span>
                 <Select
                   value={itemsPerPage.toString()}
                   onValueChange={(value) => {

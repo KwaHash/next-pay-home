@@ -1,10 +1,12 @@
+import Providers from '@/app/providers'
 import NavBar from '@/components/organisms/NavBar'
 import ScrollTopButton from '@/components/scroll-top-button'
+import TailwindIndicator from '@/components/tailwind-indicator'
 import { env } from '@/lib/config'
 import '@/styles/globals.scss'
 import HolyLoader from 'holy-loader'
 import { type Metadata, type Viewport } from 'next'
-import Providers from './providers'
+import { StrictMode } from 'react'
 
 export const viewport: Viewport = {
   themeColor: [
@@ -61,19 +63,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='jp'>
-      <body className='flex flex-col min-h-screen'>
-        <HolyLoader
-          color='#9333ea'
-          height='2px'
-          easing='linear'
-        />
-        <Providers>
-          <NavBar />
-          {children}
-          <ScrollTopButton />
-        </Providers>
-      </body>
-    </html>
+    <StrictMode>
+      <html lang='ja' suppressHydrationWarning>
+        <body className='flex flex-col min-h-screen'>
+          <HolyLoader
+            color='#9333ea'
+            height='2px'
+            easing='linear'
+          />
+          <Providers>
+            <NavBar />
+            {children}
+            <ScrollTopButton />
+          </Providers>
+          <TailwindIndicator />
+        </body>
+      </html>
+    </StrictMode>
   )
 }
