@@ -10,6 +10,9 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "dependencies": {
+    "@assistant-ui/react": "^0.12.15",
+    "@assistant-ui/react-markdown": "^0.12.5",
+    "@assistant-ui/react-syntax-highlighter": "^0.12.6",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@radix-ui/react-accordion": "^1.2.0",
