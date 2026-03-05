@@ -1,6 +1,6 @@
 'use client'
 
-import { ChevronsLeft, ChevronsRight } from 'lucide-react'
+import { FaAnglesLeft, FaAnglesRight } from 'react-icons/fa6'
 
 import {
   Pagination,
@@ -68,7 +68,7 @@ const PaginationItem: React.FC<IPaginationItem> = ({
             }
             aria-label='Go to first page'
           >
-            <ChevronsLeft className='h-4 w-4' />
+            <FaAnglesLeft className='h-4 w-4' />
           </PaginationLink>
         </ShadcnPaginationItem>
 
@@ -139,7 +139,7 @@ const PaginationItem: React.FC<IPaginationItem> = ({
             }
             aria-label='Go to last page'
           >
-            <ChevronsRight className='h-4 w-4' />
+            <FaAnglesRight className='h-4 w-4' />
           </PaginationLink>
         </ShadcnPaginationItem>
       </PaginationContent>
