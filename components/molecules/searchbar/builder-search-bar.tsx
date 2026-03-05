@@ -27,7 +27,7 @@ const BuilderSearchBar: React.FC<BuilderSearchBarProps> = ({ setSearchData }) =>
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
+      <div className='grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-2 xl:gap-4'>
         <MInput id='name' placeholder='キーワードで検索' control={control} icon={<FaSearch className='absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground' />} />
         <MSelectBox id='area' options={areas} control={control} icon={<PiMapPinAreaFill className='h-5 w-5 mr-3 text-muted-foreground' />} />
         <MSelectBox id='speciality' options={specialities} control={control} icon={<FaTools className='h-4 w-4 mr-3 text-muted-foreground' />} />
