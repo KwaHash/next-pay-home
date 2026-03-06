@@ -94,7 +94,7 @@ const ThreadWelcome: FC = () => {
 
 const ThreadSuggestions: FC = () => {
   return (
-    <div className='aui-thread-welcome-suggestions grid w-full @md:grid-cols-2 gap-2 pb-4'>
+    <div className='aui-thread-welcome-suggestions grid w-full md:grid-cols-4 gap-2 pb-4 max-w-4xl mx-auto'>
       <ThreadPrimitive.Suggestions
         components={{
           Suggestion: ThreadSuggestionItem,
@@ -110,12 +110,12 @@ const ThreadSuggestionItem: FC = () => {
       <SuggestionPrimitive.Trigger send asChild>
         <Button
           variant='ghost'
-          className='aui-thread-welcome-suggestion h-auto w-full @md:flex-col flex-wrap items-start justify-start gap-1 rounded-2xl border px-4 py-3 text-left text-sm transition-colors hover:bg-muted'
+          className='aui-thread-welcome-suggestion h-auto w-full md:flex-col flex-wrap items-center justify-center gap-1 rounded-md border px-4 py-2 text-left text-sm transition-colors hover:bg-muted hover:text-gray-800'
         >
-          <span className='aui-thread-welcome-suggestion-text-1 font-medium'>
+          <span className='aui-thread-welcome-suggestion-text-1 text-base font-medium'>
             <SuggestionPrimitive.Title />
           </span>
-          <span className='aui-thread-welcome-suggestion-text-2 text-muted-foreground'>
+          <span className='aui-thread-welcome-suggestion-text-2 text-xs text-muted-foreground'>
             <SuggestionPrimitive.Description />
           </span>
         </Button>

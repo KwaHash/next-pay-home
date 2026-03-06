@@ -1,7 +1,7 @@
 'use client'
 
-import { AssistantRuntimeProvider, useLocalRuntime, type ChatModelAdapter, type ChatModelRunResult } from '@assistant-ui/react'
-import type { ReactNode } from 'react'
+import { AssistantRuntimeProvider, Suggestions, useAui, useLocalRuntime, type ChatModelAdapter, type ChatModelRunResult } from '@assistant-ui/react';
+import type { ReactNode } from 'react';
 
 function toApiMessage(message: { role: string; content: unknown }) {
   const content = message.content
@@ -66,8 +66,33 @@ const PayHomeModelAdapter: ChatModelAdapter = {
 export function PayhomeRuntimeProvider({ children }: Readonly<{ children: ReactNode }>) {
   const runtime = useLocalRuntime(PayHomeModelAdapter)
 
+  const aui = useAui({
+    suggestions: Suggestions([
+      {
+        title: "住宅予算",
+        label: "家づくりの費用",
+        prompt: "家を建てるにはどのくらいの予算が必要ですか？",
+      },
+      {
+        title: "土地探し",
+        label: "土地探しのコツ",
+        prompt: "土地探しをする際のコツは何ですか？",
+      },
+      {
+        title: "断熱材",
+        label: "断熱材の選び方",
+        prompt: "家づくりで断熱材を選ぶときのポイントは何ですか？",
+      },
+      {
+        title: "収納計画",
+        label: "収納で失敗しない",
+        prompt: "収納計画で失敗しないためのポイントは何ですか？",
+      },
+    ]),
+  })
+
   return (
-    <AssistantRuntimeProvider runtime={runtime}>
+    <AssistantRuntimeProvider aui={aui} runtime={runtime}>
       {children}
     </AssistantRuntimeProvider>
   )
