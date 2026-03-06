@@ -7,7 +7,7 @@ const AIChatPage = () => {
   return (
     <PayhomeRuntimeProvider>
       <div className='flex h-[calc(100dvh-80px)] w-full pr-0.5 overflow-hidden'>
-        <div className='flex-1 overflow-hidden max-w-5xl mx-auto'>
+        <div className='flex-1 overflow-hidden'>
           <Thread />
         </div>
       </div>

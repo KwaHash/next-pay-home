@@ -5,7 +5,6 @@ import { TooltipIconButton } from '@/components/tooltip-icon-button'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import {
-  ActionBarMorePrimitive,
   ActionBarPrimitive,
   AuiIf,
   BranchPickerPrimitive,
@@ -22,8 +21,6 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   CopyIcon,
-  DownloadIcon,
-  MoreHorizontalIcon,
   PencilIcon,
   RefreshCwIcon,
   SquareIcon,
@@ -67,11 +64,11 @@ const ThreadScrollToBottom: FC = () => {
   return (
     <ThreadPrimitive.ScrollToBottom asChild>
       <TooltipIconButton
-        tooltip='Scroll to bottom'
+        tooltip='一番下までスクロール'
         variant='outline'
-        className='aui-thread-scroll-to-bottom absolute -top-12 z-10 self-center rounded-full p-4 disabled:invisible dark:bg-background dark:hover:bg-accent'
+        className='aui-thread-scroll-to-bottom absolute -top-12 z-10 self-center size-8 rounded-full p-0 disabled:invisible bg-gray-400 hover:bg-gray-500 transition-all duration-300 [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-white'
       >
-        <ArrowDownIcon />
+        <ArrowDownIcon aria-hidden />
       </TooltipIconButton>
     </ThreadPrimitive.ScrollToBottom>
   )
@@ -81,7 +78,7 @@ const ThreadWelcome: FC = () => {
   return (
     <div className='aui-thread-welcome-root mx-auto my-auto flex w-full max-w-(--thread-max-width) grow flex-col'>
       <div className='aui-thread-welcome-center flex w-full grow flex-col items-center justify-center'>
-        <div className='aui-thread-welcome-message flex size-full flex-col justify-center px-4 gap-4 text-center'>
+        <div className='aui-thread-welcome-message flex size-full flex-col justify-center px-4 gap-4 text-center max-w-4xl mx-auto'>
           <h1 className='aui-thread-welcome-message-inner fade-in slide-in-from-bottom-1 animate-in fill-mode-both font-semibold text-3xl duration-200'>
             こんにちは！
           </h1>
@@ -129,7 +126,7 @@ const ThreadSuggestionItem: FC = () => {
 
 const Composer: FC = () => {
   return (
-    <ComposerPrimitive.Root className='aui-composer-root relative flex w-full flex-col'>
+    <ComposerPrimitive.Root className='aui-composer-root relative flex w-full flex-col max-w-4xl mx-auto'>
       <ComposerPrimitive.AttachmentDropzone className='aui-composer-attachment-dropzone flex w-full flex-col rounded-lg border-2 border-input px-1 pt-2 outline-none transition-shadow has-[textarea:focus-visible]:ring-2 has-[textarea:focus-visible]:ring-gray-400 data-[dragging=true]:border-ring data-[dragging=true]:border-dashed data-[dragging=true]:bg-accent/50'>
         <ComposerAttachments />
         <ComposerPrimitive.Input
@@ -170,7 +167,7 @@ const ComposerAction: FC = () => {
             type='button'
             variant='default'
             size='icon'
-            className='aui-composer-cancel size-8 rounded-full'
+            className='aui-composer-cancel size-8 rounded-full bg-black/80 hover:bg-black/90'
             aria-label='Stop generating'
           >
             <SquareIcon className='aui-composer-cancel-icon size-3 fill-current' />
@@ -194,7 +191,7 @@ const MessageError: FC = () => {
 const AssistantMessage: FC = () => {
   return (
     <MessagePrimitive.Root
-      className='aui-assistant-message-root fade-in slide-in-from-bottom-1 relative mx-auto w-full max-w-(--thread-max-width) animate-in py-3 duration-150'
+      className='aui-assistant-message-root fade-in slide-in-from-bottom-1 relative w-full max-w-(--thread-max-width) animate-in py-3 duration-150 max-w-4xl mx-auto'
       data-role='assistant'
     >
       <div className='aui-assistant-message-content wrap-break-word px-2 text-foreground leading-relaxed'>
@@ -223,7 +220,7 @@ const AssistantActionBar: FC = () => {
       className='aui-assistant-action-bar-root col-start-3 row-start-2 -ml-1 flex gap-1 text-muted-foreground'
     >
       <ActionBarPrimitive.Copy asChild>
-        <TooltipIconButton tooltip='Copy'>
+        <TooltipIconButton tooltip='コピー' className='hover:bg-black/40 transition-all duration-300'>
           <AuiIf condition={(s) => s.message.isCopied}>
             <CheckIcon />
           </AuiIf>
@@ -233,32 +230,10 @@ const AssistantActionBar: FC = () => {
         </TooltipIconButton>
       </ActionBarPrimitive.Copy>
       <ActionBarPrimitive.Reload asChild>
-        <TooltipIconButton tooltip='Refresh'>
+        <TooltipIconButton tooltip='再読み込み' className='hover:bg-black/40 transition-all duration-300'>
           <RefreshCwIcon />
         </TooltipIconButton>
       </ActionBarPrimitive.Reload>
-      <ActionBarMorePrimitive.Root>
-        <ActionBarMorePrimitive.Trigger asChild>
-          <TooltipIconButton
-            tooltip='More'
-            className='data-[state=open]:bg-accent'
-          >
-            <MoreHorizontalIcon />
-          </TooltipIconButton>
-        </ActionBarMorePrimitive.Trigger>
-        <ActionBarMorePrimitive.Content
-          side='bottom'
-          align='start'
-          className='aui-action-bar-more-content z-50 min-w-32 overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md'
-        >
-          <ActionBarPrimitive.ExportMarkdown asChild>
-            <ActionBarMorePrimitive.Item className='aui-action-bar-more-item flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'>
-              <DownloadIcon className='size-4' />
-              Export as Markdown
-            </ActionBarMorePrimitive.Item>
-          </ActionBarPrimitive.ExportMarkdown>
-        </ActionBarMorePrimitive.Content>
-      </ActionBarMorePrimitive.Root>
     </ActionBarPrimitive.Root>
   )
 }
@@ -266,7 +241,7 @@ const AssistantActionBar: FC = () => {
 const UserMessage: FC = () => {
   return (
     <MessagePrimitive.Root
-      className='aui-user-message-root fade-in slide-in-from-bottom-1 mx-auto grid w-full max-w-(--thread-max-width) animate-in auto-rows-auto grid-cols-[minmax(72px,1fr)_auto] content-start gap-y-2 px-2 py-3 duration-150 [&:where(>*)]:col-start-2'
+      className='aui-user-message-root fade-in slide-in-from-bottom-1 grid w-full max-w-(--thread-max-width) animate-in auto-rows-auto grid-cols-[minmax(72px,1fr)_auto] content-start gap-y-2 px-2 py-3 duration-150 [&:where(>*)]:col-start-2 max-w-4xl mx-auto'
       data-role='user'
     >
       <UserMessageAttachments />
@@ -338,7 +313,7 @@ const BranchPicker: FC<BranchPickerPrimitive.Root.Props> = ({
       {...rest}
     >
       <BranchPickerPrimitive.Previous asChild>
-        <TooltipIconButton tooltip='Previous'>
+        <TooltipIconButton tooltip='前へ' className='hover:bg-black/40 transition-all duration-300'>
           <ChevronLeftIcon />
         </TooltipIconButton>
       </BranchPickerPrimitive.Previous>
@@ -346,7 +321,7 @@ const BranchPicker: FC<BranchPickerPrimitive.Root.Props> = ({
         <BranchPickerPrimitive.Number /> / <BranchPickerPrimitive.Count />
       </span>
       <BranchPickerPrimitive.Next asChild>
-        <TooltipIconButton tooltip='Next'>
+        <TooltipIconButton tooltip='次へ' className='hover:bg-black/40 transition-all duration-300'>
           <ChevronRightIcon />
         </TooltipIconButton>
       </BranchPickerPrimitive.Next>
