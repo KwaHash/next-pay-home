@@ -1,3 +1,4 @@
+import { TooltipProvider } from '@/components/ui/tooltip'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { type PropsWithChildren } from 'react'
 
@@ -9,7 +10,9 @@ export default function Providers({ children }: PropsWithChildren) {
       enableSystem
       disableTransitionOnChange
     >
+      <TooltipProvider>
         {children}
+      </TooltipProvider>
     </ThemeProvider>
   )
 }
