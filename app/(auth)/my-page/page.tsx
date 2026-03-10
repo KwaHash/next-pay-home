@@ -1,7 +1,7 @@
-export default function MyPage() {
-  return (
-    <main className='flex flex-col min-h-screen items-center justify-between mt-20'>
+import MyPage from '@/features/auth/my-page'
 
-    </main>
+export default function page() {
+  return (
+    <MyPage />
   )
 }
