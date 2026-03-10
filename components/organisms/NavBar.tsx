@@ -59,9 +59,9 @@ const NavBar = () => {
             <div className='hidden xl:flex items-center gap-2'>
               {isCompanyLoggedIn ? (
                 <div className='flex items-center gap-2'>
-                  <span className='text-gray-600 px-4 py-3 bg-gray-100 rounded'>
+                  {/* <span className='text-gray-600 px-4 py-3 bg-gray-100 rounded'>
                     自然工房ホーム
-                  </span>
+                  </span> */}
                   <Link href='/admin'
                     className='bg-white border border-indigo-600 text-indigo-600 px-4 py-3 rounded hover:bg-indigo-100 transition-all duration-300 ease-out flex items-center gap-2'
                   >
@@ -135,9 +135,9 @@ const NavBar = () => {
             />
             {isCompanyLoggedIn ? (
               <div className='flex flex-col'>
-                <span className='text-gray-600 text-center py-4 font-bold bg-gray-100 rounded'>
+                {/* <span className='text-gray-600 text-center py-4 font-bold bg-gray-100 rounded'>
                   自然工房ホーム
-                </span>
+                </span> */}
                 <MobileNavLink
                   icon={<LuBuilding2 />}
                   text='管理画面'
