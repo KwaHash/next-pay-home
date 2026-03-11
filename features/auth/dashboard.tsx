@@ -1,5 +1,6 @@
 'use client'
 
+import EventManagementTab from '@/components/company-tab/event-management-tab'
 import PostManagementTab from '@/components/company-tab/post-management-tab'
 import MenuItem from '@/components/molecules/sidebar/menu-item'
 import CompanyInfoTab from '@/components/tab/company-info-tab'
@@ -62,6 +63,7 @@ const DashboardPage = () => {
             <div className='bg-white rounded shadow-lg p-0 lg:p-6'>
               { activeTab === 'company-info' && <CompanyInfoTab /> }
               { activeTab === 'posts' && <PostManagementTab /> }
+              { activeTab === 'events' && <EventManagementTab /> }
             </div>
           </div>
         </div>
