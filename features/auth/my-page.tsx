@@ -1,14 +1,13 @@
 'use client'
 
+import MenuItem from '@/components/molecules/sidebar/menu-item'
 import BookmarksTab from '@/components/tab/bookmark-tab'
 import LikedPostsTab from '@/components/tab/liked-posts-tab'
 import MessagesTab from '@/components/tab/messages-tab'
 import NotificationsTab from '@/components/tab/notification-tab'
 import SettingsTab from '@/components/tab/settings-tab'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
 import { Bell, Bookmark, Heart, MessageCircle, Settings, User } from 'lucide-react'
-import { ReactNode, useState } from 'react'
+import { useState } from 'react'
 
 const MyPage = () => {
   const [activeTab, setActiveTab] = useState('notifications')
@@ -22,7 +21,7 @@ const MyPage = () => {
               <User className='w-12 h-12 text-indigo-600' />
             </div>
             <div className='flex flex-col gap-2'>
-              <h1 className='text-2xl font-bold'>山田太郎</h1>
+              <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-4'>山田太郎</h2>
               <p className='opacity-90'>2024年に注文住宅を建てる予定です</p>
             </div>
           </div>
@@ -83,33 +82,5 @@ const MyPage = () => {
     </div>
   )
 }
-
-interface MenuItemProps {
-  icon: ReactNode;
-  text: string;
-  badge?: string;
-  isActive?: boolean;
-  onClick?: () => void;
-}
-
-const MenuItem = ({ icon, text, badge, isActive, onClick }: MenuItemProps) => (
-  <Button
-    onClick={onClick}
-    className={cn(
-      'w-full h-auto flex items-center justify-between bg-white px-6 py-4 transition-colors rounded-none duration-300',
-      isActive ? 'text-indigo-600 bg-indigo-50 hover:bg-indigo-100' : 'hover:bg-gray-100 text-gray-700'
-    )}
-  >
-    <div className='flex items-center gap-3'>
-      {icon}
-      <span>{text}</span>
-    </div>
-    {badge && (
-      <span className='bg-red-500 text-white text-xs px-2 py-1 rounded-full'>
-        {badge}
-      </span>
-    )}
-  </Button>
-)
 
 export default MyPage
