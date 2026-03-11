@@ -62,7 +62,7 @@ const NavBar = () => {
                   {/* <span className='text-gray-600 px-4 py-3 bg-gray-100 rounded'>
                     自然工房ホーム
                   </span> */}
-                  <Link href='/admin'
+                  <Link href='/dashboard'
                     className='bg-white border border-indigo-600 text-indigo-600 px-4 py-3 rounded hover:bg-indigo-100 transition-all duration-300 ease-out flex items-center gap-2'
                   >
                     <LuBuilding2 />
@@ -142,7 +142,7 @@ const NavBar = () => {
                   icon={<LuBuilding2 />}
                   text='管理画面'
                   onClick={() => setIsMenuOpen(false)}
-                  linkUrl='/admin'
+                  linkUrl='/dashboard'
                 />
               </div>
             ) : (
