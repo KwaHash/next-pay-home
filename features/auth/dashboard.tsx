@@ -1,5 +1,6 @@
 'use client'
 
+import DocumentRequestsTab from '@/components/company-tab/document-requests-tab'
 import EventManagementTab from '@/components/company-tab/event-management-tab'
 import PostManagementTab from '@/components/company-tab/post-management-tab'
 import VisitorManagementTab from '@/components/company-tab/visitors-management-tab'
@@ -66,6 +67,7 @@ const DashboardPage = () => {
               { activeTab === 'posts' && <PostManagementTab /> }
               { activeTab === 'events' && <EventManagementTab /> }
               { activeTab === 'visitors' && <VisitorManagementTab /> }
+              { activeTab === 'documents' && <DocumentRequestsTab /> }
             </div>
           </div>
         </div>
