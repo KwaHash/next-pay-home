@@ -15,6 +15,17 @@ import { LuPencil, LuPlus, LuSearch, LuTrash2 } from 'react-icons/lu'
 // import NewPostModal from '../community/NewPostModal'
 // import EditPostModal from './EditPostModal'
 
+export interface Comment {
+  id: number;
+  author: {
+    name: string;
+    avatar: string;
+  };
+  content: string;
+  date: string;
+  likes: number;
+}
+
 export interface Post {
   id: number;
   author: {
