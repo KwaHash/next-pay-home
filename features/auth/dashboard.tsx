@@ -1,5 +1,6 @@
 'use client'
 
+import PostManagementTab from '@/components/company-tab/post-management-tab'
 import MenuItem from '@/components/molecules/sidebar/menu-item'
 import CompanyInfoTab from '@/components/tab/company-info-tab'
 import { Building2, Calendar, FileText, MessageCircle, PenSquare, Settings, Users } from 'lucide-react'
@@ -9,7 +10,6 @@ import { useState } from 'react'
 // import MessagesTab from './dashboard/MessagesTab'
 // import PostManagement from './dashboard/PostManagement'
 // import SettingsTab from './dashboard/SettingsTab'
-// import SidebarItem from './dashboard/SidebarItem'
 // import VisitorManagement from './dashboard/VisitorManagement'
 
 const DashboardPage = () => {
@@ -61,6 +61,7 @@ const DashboardPage = () => {
           <div className='lg:col-span-3'>
             <div className='bg-white rounded shadow-lg p-0 lg:p-6'>
               { activeTab === 'company-info' && <CompanyInfoTab /> }
+              { activeTab === 'posts' && <PostManagementTab /> }
             </div>
           </div>
         </div>
