@@ -2,6 +2,7 @@
 
 import EventManagementTab from '@/components/company-tab/event-management-tab'
 import PostManagementTab from '@/components/company-tab/post-management-tab'
+import VisitorManagementTab from '@/components/company-tab/visitors-management-tab'
 import MenuItem from '@/components/molecules/sidebar/menu-item'
 import CompanyInfoTab from '@/components/tab/company-info-tab'
 import { Building2, Calendar, FileText, MessageCircle, PenSquare, Settings, Users } from 'lucide-react'
@@ -64,6 +65,7 @@ const DashboardPage = () => {
               { activeTab === 'company-info' && <CompanyInfoTab /> }
               { activeTab === 'posts' && <PostManagementTab /> }
               { activeTab === 'events' && <EventManagementTab /> }
+              { activeTab === 'visitors' && <VisitorManagementTab /> }
             </div>
           </div>
         </div>
