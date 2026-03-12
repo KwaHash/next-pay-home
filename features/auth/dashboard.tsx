@@ -3,17 +3,13 @@
 import DocumentRequestsTab from '@/components/company-tab/document-requests-tab'
 import EventManagementTab from '@/components/company-tab/event-management-tab'
 import PostManagementTab from '@/components/company-tab/post-management-tab'
+import SettingsTab from '@/components/company-tab/settings-tab'
 import VisitorManagementTab from '@/components/company-tab/visitors-management-tab'
 import MenuItem from '@/components/molecules/sidebar/menu-item'
 import CompanyInfoTab from '@/components/tab/company-info-tab'
+import MessagesTab from '@/components/tab/messages-tab'
 import { Building2, Calendar, FileText, MessageCircle, PenSquare, Settings, Users } from 'lucide-react'
 import { useState } from 'react'
-// import DocumentRequestsTab from './dashboard/DocumentRequestsTab'
-// import EventManagement from './dashboard/EventManagement'
-// import MessagesTab from './dashboard/MessagesTab'
-// import PostManagement from './dashboard/PostManagement'
-// import SettingsTab from './dashboard/SettingsTab'
-// import VisitorManagement from './dashboard/VisitorManagement'
 
 const DashboardPage = () => {
   const [activeTab, setActiveTab] = useState('company-info')
@@ -68,6 +64,8 @@ const DashboardPage = () => {
               { activeTab === 'events' && <EventManagementTab /> }
               { activeTab === 'visitors' && <VisitorManagementTab /> }
               { activeTab === 'documents' && <DocumentRequestsTab /> }
+              { activeTab === 'messages' && <MessagesTab /> }
+              { activeTab === 'settings' && <SettingsTab /> }
             </div>
           </div>
         </div>
