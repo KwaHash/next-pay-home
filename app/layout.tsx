@@ -67,7 +67,7 @@ export default function RootLayout({
       <html lang='ja' suppressHydrationWarning>
         <body className='flex flex-col min-h-screen'>
           <HolyLoader
-            color='#9333ea'
+            color='#4f46e5'
             height='2px'
             easing='linear'
           />
