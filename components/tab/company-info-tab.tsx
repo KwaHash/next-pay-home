@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import Image from 'next/image'
 import { useState } from 'react'
+import { IoClose } from 'react-icons/io5'
 import { LuBuilding2, LuUpload } from 'react-icons/lu'
 
 const CompanyInfoTab = () => {
@@ -21,6 +22,16 @@ const CompanyInfoTab = () => {
     specialties: ['自然素材', '省エネ', '注文住宅', 'リフォーム'],
     logo: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800'
   })
+
+  const removeSpecialty = (specialty: string) => {
+    const newSpecialties = companyInfo.specialties.filter((s) => s !== specialty)
+    setCompanyInfo({
+      ...companyInfo,
+      specialties: newSpecialties
+    })
+  }
+
+  console.log(companyInfo.specialties)
 
   return (
     <form className='flex flex-col gap-8'>
@@ -109,9 +120,7 @@ const CompanyInfoTab = () => {
           <span>会社紹介</span>
         </h3>
         <div className='space-y-2'>
-          <Label className='text-sm font-medium text-gray-700'>
-            会社説明（任意）
-          </Label>
+          <Label className='text-sm font-medium text-gray-700'>会社説明（任意）</Label>
           <Textarea
             value={companyInfo.description}
             onChange={(e) =>
@@ -125,35 +134,26 @@ const CompanyInfoTab = () => {
 
       <section>
         <h3 className='text-lg font-semibold mb-4'>得意分野</h3>
-        <div className='flex flex-wrap gap-2'>
+        <div className='flex flex-wrap gap-4'>
           {companyInfo.specialties.map((specialty, index) => (
-            <span
-              key={index}
-              className='bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm flex items-center gap-2'
-            >
-              {specialty}
-              <button
+            <div key={index} className='relative flex items-center bg-indigo-100 rounded-full px-3 py-1'>
+              <span className='text-indigo-600 text-sm'>{specialty}</span>
+              <Button
+                variant='ghost'
                 type='button'
-                onClick={() => {
-                  const newSpecialties = companyInfo.specialties.filter(
-                    (_, i) => i !== index
-                  )
-                  setCompanyInfo({
-                    ...companyInfo,
-                    specialties: newSpecialties
-                  })
-                }}
-                className='hover:text-indigo-800 text-lg leading-none'
+                size='icon'
+                onClick={() => {removeSpecialty(specialty)}}
+                className='absolute -right-2 -top-1/2 translate-y-1/2 w-5 h-5 p-0 bg-red-500 hover:bg-red-600 text-white rounded-full shadow-md border-2 border-white transition-all duration-300 flex items-center justify-center'
               >
-                ×
-              </button>
-            </span>
+                <IoClose className='w-5 h-5' />
+              </Button>
+            </div>
           ))}
           <Button
             type='button'
-            variant='outline'
+            variant='default'
             size='sm'
-            className='rounded-full'
+            className='rounded-full bg-indigo-600 text-white hover:bg-indigo-700 transition-all duration-300 ease-out font-medium shadow-md'
             onClick={() => {
               const specialty = prompt('新しい得意分野を入力してください')
               if (specialty) {
