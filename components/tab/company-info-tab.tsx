@@ -7,6 +7,19 @@ import { Textarea } from '@/components/ui/textarea'
 import Image from 'next/image'
 import { useState } from 'react'
 import { LuBuilding2, LuUpload } from 'react-icons/lu'
+import Select, { MultiValue } from 'react-select'
+
+interface ISpecialtyProps {
+  value: string;
+  label: string;
+}
+
+const fixedOptions = [
+  { value: '省エネ', label: '省エネ' },
+  { value: '自然素材', label: '自然素材' },
+  { value: '注文住宅', label: '注文住宅' },
+  { value: 'リフォーム', label: 'リフォーム' },
+]
 
 const CompanyInfoTab = () => {
   const [companyInfo, setCompanyInfo] = useState({
@@ -16,11 +29,25 @@ const CompanyInfoTab = () => {
     address: '東京都世田谷区',
     website: 'https://shizen-kobo.com',
     established: '1985',
-    description:
-      '自然素材にこだわった家づくりを得意とする工務店です。お客様一人一人の理想に寄り添い、健康的で快適な住まいを提供します。',
-    specialties: ['自然素材', '省エネ', '注文住宅', 'リフォーム'],
+    description: '自然素材にこだわった家づくりを得意とする工務店です。お客様一人一人の理想に寄り添い、健康的で快適な住まいを提供します。',
     logo: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800'
   })
+
+  const [specialties, setSpecialties] = useState<string[]>([])
+  const [allOptions, setAllOptions] = useState<ISpecialtyProps[]>(fixedOptions)
+
+  const onChange = (selected: MultiValue<ISpecialtyProps>) => {
+    const selectedValues = selected.map((item) => item.value)
+    setSpecialties(selectedValues)
+  }
+
+  const onInputChange = (value: string) => {
+    if (value) {
+      setAllOptions([{ value: value, label: value }, ...fixedOptions])
+    } else {
+      setAllOptions(fixedOptions)
+    }
+  }
 
   return (
     <form className='flex flex-col gap-8'>
@@ -88,9 +115,7 @@ const CompanyInfoTab = () => {
             />
           </div>
           <div className='space-y-2 md:col-span-2'>
-            <Label className='text-sm font-medium text-gray-700'>
-              Webサイト
-            </Label>
+            <Label className='text-sm font-medium text-gray-700'>Webサイト</Label>
             <Input
               type='url'
               value={companyInfo.website}
@@ -109,9 +134,7 @@ const CompanyInfoTab = () => {
           <span>会社紹介</span>
         </h3>
         <div className='space-y-2'>
-          <Label className='text-sm font-medium text-gray-700'>
-            会社説明（任意）
-          </Label>
+          <Label className='text-sm font-medium text-gray-700'>会社説明（任意）</Label>
           <Textarea
             value={companyInfo.description}
             onChange={(e) =>
@@ -125,73 +148,37 @@ const CompanyInfoTab = () => {
 
       <section>
         <h3 className='text-lg font-semibold mb-4'>得意分野</h3>
-        <div className='flex flex-wrap gap-2'>
-          {companyInfo.specialties.map((specialty, index) => (
-            <span
-              key={index}
-              className='bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm flex items-center gap-2'
-            >
-              {specialty}
-              <button
-                type='button'
-                onClick={() => {
-                  const newSpecialties = companyInfo.specialties.filter(
-                    (_, i) => i !== index
-                  )
-                  setCompanyInfo({
-                    ...companyInfo,
-                    specialties: newSpecialties
-                  })
-                }}
-                className='hover:text-indigo-800 text-lg leading-none'
-              >
-                ×
-              </button>
-            </span>
-          ))}
-          <Button
-            type='button'
-            variant='outline'
-            size='sm'
-            className='rounded-full'
-            onClick={() => {
-              const specialty = prompt('新しい得意分野を入力してください')
-              if (specialty) {
-                setCompanyInfo({
-                  ...companyInfo,
-                  specialties: [...companyInfo.specialties, specialty]
-                })
-              }
-            }}
-          >
-            + 追加
-          </Button>
-        </div>
+        <Select
+          defaultValue={allOptions.slice(0, 2)}
+          isMulti
+          options={allOptions}
+          placeholder='選択してください'
+          noOptionsMessage={() => 'オプションがありません'}
+          onInputChange={onInputChange}
+          onChange={onChange}
+          />
       </section>
 
       <section>
         <h3 className='text-lg font-semibold mb-4'>ロゴ画像</h3>
         <div className='flex items-center gap-6'>
-          <div className='relative w-32 h-32 rounded-lg border border-input overflow-hidden shrink-0'>
+          <div className='relative aspect-video w-48 h-27 rounded-none border border-input overflow-hidden shrink-0'>
             <Image
               src={companyInfo.logo}
               alt='会社ロゴ'
-              width={128}
-              height={128}
+              width={394}
+              height={216}
               className='object-cover w-full h-full'
             />
           </div>
-          <Button type='button' variant='outline' className='rounded-none'>
+          <Button type='button' variant='outline' className='rounded-none bg-white hover:bg-gray-100 hover:text-gray-900 transition-all duration-300'>
             <LuUpload className='w-5 h-5 mr-2' />
-            画像を変更
+            <span>画像を変更</span>
           </Button>
         </div>
       </section>
 
       <div className='flex justify-end gap-4'>
-        <Button type='button' variant='outline' className='rounded-none'>
-          キャンセル
-        </Button>
         <Button
           type='submit'
           className='h-auto px-8 py-3 bg-indigo-600 text-white rounded-none hover:bg-indigo-700 transition-all duration-300 ease-out font-medium shadow-md'
