@@ -2,16 +2,11 @@
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { useState } from 'react'
-import { LuPencil, LuPlus, LuSearch, LuTrash2 } from 'react-icons/lu'
+import { LuExternalLink, LuHeart, LuMessageCircle, LuPlus, LuSearch } from 'react-icons/lu'
 // import NewPostModal from '../community/NewPostModal'
 // import EditPostModal from './EditPostModal'
 
@@ -118,7 +113,7 @@ const PostManagementTab = () => {
           className='rounded-none bg-indigo-600 text-white hover:bg-indigo-700 transition-colors gap-2'
         >
           <LuPlus className='w-5 h-5' />
-          新規投稿
+          <span>新規投稿</span>
         </Button>
       </div>
 
@@ -148,61 +143,55 @@ const PostManagementTab = () => {
         </Select>
       </div>
 
-      <div className='space-y-4'>
+      <div className='flex flex-col gap-4'>
         {filteredPosts.map((post) => (
-          <div key={post.id} className='border rounded-lg p-4'>
-            <div className='flex justify-between items-start'>
-              <div className='flex gap-4'>
-                {post.image && (
-                  <div className='relative w-24 h-24 shrink-0 overflow-hidden rounded-lg'>
-                    <Image
-                      src={post.image}
-                      alt={post.title}
-                      width={192}
-                      height={192}
-                      sizes='96px'
-                      quality={90}
-                      className='object-cover w-full h-full'
-                    />
-                  </div>
-                )}
-                <div>
-                  <h3 className='font-semibold text-lg mb-2'>{post.title}</h3>
-                  <p className='text-gray-600 line-clamp-2'>{post.content}</p>
-                  <div className='flex items-center gap-4 mt-2 text-sm text-gray-500'>
-                    <span>{post.date}</span>
-                    <span>いいね {post.likes}</span>
-                    <span>コメント {post.comments.length}</span>
-                  </div>
-                  <div className='flex gap-2 mt-2'>
-                    {post.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className='bg-gray-100 text-gray-600 px-2 py-1 rounded text-sm'
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+          <div key={post.id} className='bg-white rounded shadow'>
+            <div className='flex flex-col md:flex-row gap-6 p-4'>
+              <div className='relative aspect-video w-full md:w-1/3'>
+                <Image
+                  src={post.image || ''}
+                  alt={post.title}
+                  fill
+                  sizes='(max-width: 767px) 100vw, 33vw'
+                  className='absolute object-cover rounded-none'
+                />
               </div>
-              <div className='flex gap-2'>
-                <Button
-                  variant='ghost'
-                  size='icon'
-                  onClick={() => setEditingPost(post)}
-                  className='text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-none'
-                >
-                  <LuPencil className='w-5 h-5' />
-                </Button>
-                <Button
-                  variant='ghost'
-                  size='icon'
-                  onClick={() => handleDeletePost(post.id)}
-                  className='text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-none'
-                >
-                  <LuTrash2 className='w-5 h-5' />
-                </Button>
+              <div className='md:w-2/3'>
+                <div className='flex items-center justify-between mb-2'>
+                  <span className={cn('px-2 py-1 rounded text-sm',
+                    post.draft === true ? 'bg-blue-100 text-blue-600' : 'bg-green-100 text-green-600'
+                  )}>
+                    {post.draft === true ? '下書き' : '公開中'}
+                  </span>
+                  <span className='text-sm text-gray-500'>{post.date}</span>
+                </div>
+                <h3 className='text-xl font-semibold mb-2'>{post.title}</h3>
+                <p className='text-gray-600 line-clamp-2'>{post.content}</p>
+                <div className='flex gap-2 mt-2'>
+                  {post.tags.map((tag) => (
+                    <span key={tag}
+                      className='bg-gray-100 text-gray-600 px-2 py-1 rounded text-[13px]'
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className='flex items-center justify-between'>
+                  <div className='flex items-center gap-4 text-gray-500'>
+                    <span className='flex items-center gap-1'>
+                      <LuHeart className='w-4 h-4' />
+                      {post.likes}
+                    </span>
+                    <span className='flex items-center gap-1'>
+                      <LuMessageCircle className='w-4 h-4' />
+                      {post.comments.length}
+                    </span>
+                  </div>
+                  <Button variant='link' className='text-indigo-600 hover:text-indigo-700 flex items-center gap-1 hover:no-underline'>
+                    <LuExternalLink className='w-4 h-4' />
+                    <span>開く</span>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
