@@ -1,7 +1,7 @@
 'use client'
 
-import { useCallback, useLayoutEffect, useState } from 'react'
 import throttle from 'lodash.throttle'
+import { useCallback, useLayoutEffect, useState } from 'react'
 
 type ScrollPosition = { x: number; y: number }
 
@@ -15,7 +15,7 @@ export function useWindowScroll(): [
   })
 
   const scrollTo = useCallback((options: ScrollToOptions) => {
-    window.scrollTo(options)
+    window.scrollTo({ behavior: 'smooth', ...options })
   }, [])
 
   useLayoutEffect(() => {
