@@ -20,7 +20,7 @@ const DashboardPage = () => {
     { id: 'events', icon: <Calendar className='w-5 h-5' />, text: 'イベント管理' },
     { id: 'visitors', icon: <Users className='w-5 h-5' />, text: '来場者管理' },
     { id: 'documents', icon: <FileText className='w-5 h-5' />, text: '資料請求管理' },
-    { id: 'messages', icon: <MessageCircle className='w-5 h-5' />, text: 'メッセージ' },
+    { id: 'messages', icon: <MessageCircle className='w-5 h-5' />, text: 'メッセージ', badge: '5' },
     { id: 'settings', icon: <Settings className='w-5 h-5' />, text: '設定' }
   ]
 
@@ -49,6 +49,7 @@ const DashboardPage = () => {
                     key={item.id}
                     icon={item.icon}
                     text={item.text}
+                    badge={item.badge}
                     isActive={activeTab === item.id}
                     onClick={() => setActiveTab(item.id)}
                   />
