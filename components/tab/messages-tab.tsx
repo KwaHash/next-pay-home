@@ -3,7 +3,7 @@ import { Input } from '@/components/ui/input'
 import { cn, getMessageTime } from '@/lib/utils'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
-import { IoIosSend } from 'react-icons/io'
+import { IoIosArrowBack, IoIosSend } from 'react-icons/io'
 
 const conversations = [
   {
@@ -39,6 +39,7 @@ const MessagesTab = () => {
   const [selectedConversation, setSelectedConversation] = useState<number | null>(1)
   const [messages, setMessages] = useState(initialMessages)
   const [newMessage, setNewMessage] = useState('')
+  const [mobileThreadOpen, setMobileThreadOpen] = useState(false)
   const messagesScrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -51,6 +52,7 @@ const MessagesTab = () => {
     setSelectedConversation(id)
     setMessages(initialMessages)
     setNewMessage('')
+    setMobileThreadOpen(true)
   }
 
   const handleSend = () => {
@@ -61,8 +63,13 @@ const MessagesTab = () => {
 
   return (
     <div className='bg-white rounded-lg shadow-lg h-[calc(100vh-16rem)]'>
-      <div className='grid grid-cols-3 h-full border border-gray-100'>
-        <div className='col-span-1 border-r overflow-x-hidden'>
+      <div className='grid h-full grid-cols-1 border border-gray-100 md:grid-cols-3'>
+        <div
+          className={cn(
+            'col-span-1 flex flex-col overflow-x-hidden border-r sm:flex',
+            mobileThreadOpen && 'max-md:hidden'
+          )}
+        >
           <div className='p-4 border-b'>
             <h2 className='font-semibold'>メッセージ</h2>
           </div>
@@ -91,11 +98,26 @@ const MessagesTab = () => {
           </div>
         </div>
 
-        <div className='col-span-2 flex flex-col overflow-x-hidden overflow-y-auto'>
+        <div
+          className={cn(
+            'col-span-2 flex min-h-0 flex-col overflow-x-hidden overflow-y-auto',
+            !mobileThreadOpen && 'max-md:hidden'
+          )}
+        >
           {selectedConversation ? (
             <>
               <div className='p-4 border-b'>
                 <div className='flex items-center gap-4'>
+                  <Button
+                    type='button'
+                    variant='ghost'
+                    size='icon'
+                    className='shrink-0 rounded-none md:hidden'
+                    onClick={() => setMobileThreadOpen(false)}
+                    aria-label='会話一覧に戻る'
+                  >
+                    <IoIosArrowBack className='h-6 w-6' />
+                  </Button>
                   <Image
                     src={conversations.find(c => c.id === selectedConversation)?.avatar || ''}
                     width={48}
