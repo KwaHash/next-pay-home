@@ -156,7 +156,7 @@ const CompanyInfoTab = () => {
           noOptionsMessage={() => 'オプションがありません'}
           onInputChange={onInputChange}
           onChange={onChange}
-          />
+        />
       </section>
 
       <section>
