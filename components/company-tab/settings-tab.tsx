@@ -11,19 +11,18 @@ const SettingsTab = () => {
   const [settings, setSettings] = useState({
     notifications: {
       email: true,
-      browser: false,
-      line: true
+      line: false,
     },
     privacy: {
       showEmail: false,
       showPhone: true,
-      allowMessages: true
     },
-    display: {
-      language: 'ja',
-      timezone: 'Asia/Tokyo'
-    }
+    locale: 'ja',
   })
+
+  const handleCompanySettingsSave = () => {
+    
+  }
 
   return (
     <div className='bg-white rounded-lg shadow-lg p-6'>
@@ -39,9 +38,7 @@ const SettingsTab = () => {
             <div className='flex items-center justify-between'>
               <div className='flex flex-col gap-2'>
                 <p className='font-medium'>メール通知</p>
-                <p className='text-sm text-gray-500'>
-                  新着メッセージやイベント予約時にメールを受け取る
-                </p>
+                <p className='text-sm text-gray-500'>新着メッセージやイベント予約時にメールを受け取る</p>
               </div>
               <Switch
                 checked={settings.notifications.email}
@@ -51,26 +48,6 @@ const SettingsTab = () => {
                     notifications: {
                       ...settings.notifications,
                       email: checked
-                    }
-                  })
-                }
-              />
-            </div>
-            <div className='flex items-center justify-between'>
-              <div className='flex flex-col gap-2'>
-                <p className='font-medium'>ブラウザ通知</p>
-                <p className='text-sm text-gray-500'>
-                  ブラウザ上でリアルタイム通知を受け取る
-                </p>
-              </div>
-              <Switch
-                checked={settings.notifications.browser}
-                onCheckedChange={(checked) =>
-                  setSettings({
-                    ...settings,
-                    notifications: {
-                      ...settings.notifications,
-                      browser: checked
                     }
                   })
                 }
@@ -103,7 +80,7 @@ const SettingsTab = () => {
             <span>プライバシー設定</span>
           </h3>
           <div className='flex flex-col gap-4'>
-            <div className='flex items-center justify-between gap-2'>
+            <div className='flex items-center justify-between'>
               <div className='flex flex-col gap-2'>
                 <p className='font-medium'>メールアドレスを公開</p>
                 <p className='text-sm text-gray-500'>一般ユーザーにメールアドレスを表示する</p>
@@ -121,8 +98,8 @@ const SettingsTab = () => {
                 }
               />
             </div>
-            <div className='flex items-center justify-between gap-2'>
-              <div>
+            <div className='flex items-center justify-between'>
+              <div className='flex flex-col gap-2'>
                 <p className='font-medium'>電話番号を公開</p>
                 <p className='text-sm text-gray-500'>一般ユーザーに電話番号を表示する</p>
               </div>
@@ -150,18 +127,15 @@ const SettingsTab = () => {
           <div className='flex flex-col'>
             <Label className='block text-sm font-medium text-gray-700 mb-2'>言語</Label>
             <Select
-              value={settings.display.language}
+              value={settings.locale}
               onValueChange={(value) =>
                 setSettings({
                   ...settings,
-                  display: {
-                    ...settings.display,
-                    language: value
-                  }
+                  locale: value,
                 })
               }
             >
-              <SelectTrigger className='w-full rounded-none'>
+              <SelectTrigger className='w-full sm:w-1/2 rounded-none'>
                 <SelectValue placeholder='言語を選択' />
               </SelectTrigger>
               <SelectContent>
@@ -175,6 +149,7 @@ const SettingsTab = () => {
         <div className='flex justify-end'>
           <Button
             type='button'
+            onClick={handleCompanySettingsSave}
             className='h-auto px-8 py-3 bg-indigo-600 text-white rounded-none hover:bg-indigo-700 transition-all duration-300 ease-out font-medium shadow-md'
           >
             <span>設定を保存</span>
