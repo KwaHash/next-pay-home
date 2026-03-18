@@ -37,7 +37,7 @@ export const Thread: FC = () => {
     >
       <ThreadPrimitive.Viewport
         turnAnchor='top'
-        className='aui-thread-viewport relative flex flex-1 flex-col overflow-x-auto overflow-y-scroll scroll-smooth px-4 pt-4'
+        className='aui-thread-viewport relative flex flex-1 flex-col overflow-x-auto overflow-y-scroll scroll-smooth px-4 pt-4 scrollbar'
       >
         <AuiIf condition={(s) => s.thread.isEmpty}>
           <ThreadWelcome />
@@ -268,8 +268,11 @@ const UserActionBar: FC = () => {
       className='aui-user-action-bar-root flex flex-col items-end'
     >
       <ActionBarPrimitive.Edit asChild>
-        <TooltipIconButton tooltip='Edit' className='aui-user-action-edit p-4'>
-          <PencilIcon />
+        <TooltipIconButton
+          tooltip='編集'
+          className='aui-user-action-edit size-9 shrink-0 p-0 hover:bg-gray-300 rounded-full transition-all duration-300 [&>svg]:size-4 [&>svg]:shrink-0 text-foreground'
+        >
+          <PencilIcon aria-hidden />
         </TooltipIconButton>
       </ActionBarPrimitive.Edit>
     </ActionBarPrimitive.Root>
@@ -278,7 +281,7 @@ const UserActionBar: FC = () => {
 
 const EditComposer: FC = () => {
   return (
-    <MessagePrimitive.Root className='aui-edit-composer-wrapper mx-auto flex w-full max-w-(--thread-max-width) flex-col px-2 py-3'>
+    <MessagePrimitive.Root className='aui-edit-composer-wrapper flex w-full max-w-(--thread-max-width) flex-col px-2 py-3 max-w-4xl mx-auto'>
       <ComposerPrimitive.Root className='aui-edit-composer-root ml-auto flex w-full max-w-[85%] flex-col rounded-2xl bg-muted'>
         <ComposerPrimitive.Input
           className='aui-edit-composer-input min-h-14 w-full resize-none bg-transparent p-4 text-foreground text-sm outline-none'
@@ -286,12 +289,16 @@ const EditComposer: FC = () => {
         />
         <div className='aui-edit-composer-footer mx-3 mb-3 flex items-center gap-2 self-end'>
           <ComposerPrimitive.Cancel asChild>
-            <Button variant='ghost' size='sm'>
-              Cancel
+            <Button variant='ghost' size='sm' 
+              className='border border-gray-300 text-gray-900 hover:text-gray-900 bg-white hover:bg-gray-100 rounded-full transition-all duration-300'>
+                キャンセル
             </Button>
           </ComposerPrimitive.Cancel>
           <ComposerPrimitive.Send asChild>
-            <Button size='sm'>Update</Button>
+            <Button variant='ghost' size='sm'
+              className='text-white hover:text-white bg-black hover:bg-black/90 rounded-full transition-all duration-300'>
+                更新する
+            </Button>
           </ComposerPrimitive.Send>
         </div>
       </ComposerPrimitive.Root>
