@@ -9,3 +9,11 @@ export function getMessageTime() {
   const now = new Date()
   return now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0')
 }
+
+export function escapeCsvCell(value: string | number): string {
+  const str = String(value)
+  if (/[",\r\n]/.test(str)) {
+    return `"${str.replace(/"/g, '""')}"`
+  }
+  return str
+}
